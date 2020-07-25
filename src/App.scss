@@ -1,5 +1,14 @@
 @import 'styles/variables';
 
 @import 'styles/base';
-@import 'styles/home';
-@import 'styles/works';
+@import 'styles/bubble';
+@import 'styles/pages/education';
+@import 'styles/pages/footer';
+@import 'styles/pages/job';
+@import 'src/styles/pages/home';
+@import 'src/styles/pages/works';
+@import 'src/styles/elements/button';
+@import 'styles/elements/card';
+@import 'src/styles/utils';
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');

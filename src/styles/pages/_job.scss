@@ -1,0 +1,27 @@
+.job {
+  height: 100vh;
+  background: $color-white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__cards-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(70px, 48px);
+
+    h1 {
+      font-size: 70px;
+    }
+  }
+}

@@ -1,13 +1,114 @@
 import React, { Component} from 'react';
-import {WORKS_DATA} from '../assets/data/WorksData';
-import * as d3 from 'd3';
-import {BubbleModel} from "../model/BubbleModel";
+import jackie from '../assets/img/jackie2.png';
+import chou from '../assets/img/chou.png';
+import gem from '../assets/img/gem.png';
+import suk from '../assets/img/jang_keun_suk2.png';
+import rei from '../assets/img/rei.png';
+import reiwa from '../assets/img/reiwa.jpg';
+import ronbun from '../assets/img/ronbun.jpg';
+import sasaki from '../assets/img/sasaki.png';
+import hwa from '../assets/img/jung_yong_hwa3.png';
+import gackt from '../assets/img/gackt.png';
+
+interface PhotoStyle {
+    top: string;
+    left: string;
+    border: string;
+}
+
+interface PhotoMetadata {
+    path: string;
+    style: PhotoStyle;
+}
 
 type WorksPageState = {
-    bubblesData: BubbleModel[],
-    bubblesRefs: any[],
-    openedBubbleIndex: number
+    // photos: PhotoMetadata;
 }
+
+const drawings: Array<PhotoMetadata> = [
+    {
+        path: jackie,
+        style: {
+            top: '26vh',
+            left: '27vw',
+            border: '6px solid white'
+        }
+    },
+    {
+        path: gem,
+        style: {
+            top: '58vh',
+            left: '19vw',
+            border: '6px solid white'
+        }
+    },
+    {
+        path: suk,
+        style: {
+            top: '81vh',
+            left: '37vw',
+            border: '6px solid white'
+        }
+    },
+    {
+        path: hwa,
+        style: {
+            top: '50vh',
+            left: '40vw',
+            border: '6px solid white'
+        }
+    },
+    {
+        path: gackt,
+        style: {
+            top: '23vh',
+            left: '50vw',
+            border: '6px solid white'
+        }
+    }
+];
+const calligraphy: Array<PhotoMetadata> = [
+    {
+        path: chou,
+        style: {
+            top: '28vh',
+            left: '84vw',
+            border: '6px solid black'
+        }
+    },
+    {
+        path: rei,
+        style: {
+            top: '77vh',
+            left: '81vw',
+            border: '6px solid black'
+        }
+    },
+    {
+        path: reiwa,
+        style: {
+            top: '81vh',
+            left: '51vw',
+            border: '6px solid black'
+        }
+    },
+    {
+        path: ronbun,
+        style: {
+            top: '50vh',
+            left: '69vw',
+            border: '6px solid black'
+        }
+    },
+    {
+        path: sasaki,
+        style: {
+            top: '18vh',
+            left: '60vw',
+            border: '6px solid black'
+        }
+    }
+];
 
 export class WorksPage extends Component<{}, WorksPageState> {
 
@@ -15,73 +116,44 @@ export class WorksPage extends Component<{}, WorksPageState> {
         super(props);
 
         this.state = {
-            bubblesData: WORKS_DATA,
-            bubblesRefs: [],
-            openedBubbleIndex: -1
+            // photos:
         };
     }
 
     componentDidMount(): void {
-        this.setBubblesContainer();
-        this.drawBubbles();
+
     }
 
-    private setBubblesContainer(): void {
-        const bubblesContainer = d3.select('div.works');
-        const bubblesContainerRect = (bubblesContainer.node() as Element).getBoundingClientRect();
-
-        const bubblesContainerWidth = bubblesContainerRect.width;
-        const bubblesContainerHeight = bubblesContainerRect.height;
-
-        bubblesContainer
-            .append('svg')
-            .attr('width', bubblesContainerWidth)
-            .attr('height', bubblesContainerHeight);
-    }
-
-    private drawBubbles(): void {
-        const bubblesSvg = d3.select('div.works svg');
-        const bubbleRefsArray = [];
-
-        for (let i = 0; i < this.state.bubblesData.length; i++) {
-            const bubble: any = bubblesSvg
-                .append('circle')
-                .attr('cx', this.state.bubblesData[i].cx)
-                .attr('cy', this.state.bubblesData[i].cy)
-                .attr('r', this.state.bubblesData[i].r);
-
-
-            bubble.on('click', () => this.onBubbleClick(bubble, i));
-
-            bubbleRefsArray.push(bubble);
-        }
-
-        this.setState({bubblesRefs: bubbleRefsArray});
-    }
-
-    private onBubbleClick(bubble: any, bubbleIndex: number): void {
-        this.closeOpenedBubble();
-        this.openClickedBubble(bubble, bubbleIndex);
-    }
-
-    private closeOpenedBubble(): void {
-        const bubbleToCloseIndex = this.state.openedBubbleIndex;
-
-        if (bubbleToCloseIndex !== -1)
-            this.state.bubblesRefs[bubbleToCloseIndex]
-                .transition()
-                .duration(1000)
-                .attr('r', 20);
-    }
-
-    private openClickedBubble(bubble: any, bubbleIndex: number): void {
-        this.setState({openedBubbleIndex: bubbleIndex});
-        bubble.transition().duration(1000).attr('r', 50);
+    getPictures(pictures: Array<PhotoMetadata>) {
+        return (
+            pictures.map((photo: PhotoMetadata) =>
+                <div className="works__circle" style={{ top: photo.style.top, left: photo.style.left }}>
+                    <img src={photo.path} alt="Jackie Chan" className="works__image" style={{border: photo.style.border }}/>
+                </div>
+            )
+        );
     }
 
     render() {
         return (
-            <div className='works'/>
+            <div>
+                <div className='works'>
+                    <div className="width-keeper">
+                        { this.getPictures(drawings) }
+                        <div className='works__title works__title--right works__title--white'>
+                            <span>Pencil portrait</span>
+                        </div>
+                    </div>
+                </div>
+                <div className='works'>
+                    <div className="width-keeper">
+                        { this.getPictures(calligraphy) }
+                        <div className='works__title works__title--left works__title--black'>
+                            <span>Japanese calligraphy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
