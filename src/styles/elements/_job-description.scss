@@ -1,0 +1,108 @@
+.job-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 5rem;
+
+
+  &__left-panel {
+    width: 15rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    border: 4px solid $color-background-secondary;
+    border-radius: 20px;
+
+    img {
+      width: 10rem;
+    }
+
+    &--date {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      transform: translate(6px, 13px) rotate(-15deg);
+      color: $color-text-light;
+    }
+
+    &--technology {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      padding-right: 5px;
+
+      .technology-icon {
+        width: 24px;
+
+        svg {
+
+        }
+      }
+    }
+
+    &--education {
+      border-radius: 50%;
+    }
+  }
+
+  &__divider {
+    width: 10rem;
+    border-bottom: 4px solid $color-background-secondary;
+    margin: 0 2rem 0 2rem;
+  }
+
+  &__right-panel {
+    width: 40rem;
+    color: $color-font-primary;
+
+    &--title {
+      display: flex;
+      font-size: $font-size-tertiary;
+      font-weight: bold;
+      line-height: 25px;
+
+      div:first-child {
+        padding-right: 5px;
+      }
+    }
+
+    &--description-container {
+
+    }
+
+    &--image {
+      float: right;
+      width: 30%;
+      border-radius: 50%;
+      shape-outside: circle();
+      margin: 10px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &--description {
+      font-size:$font-size-tertiary;
+      display: flex;
+      flex-direction: column;
+      text-align: justify;
+
+      .description-line--highlighted {
+        color: $color-highlight;
+      }
+    }
+
+    &--technology {
+      line-height: 20px;
+    }
+  }
+}

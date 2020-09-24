@@ -8,7 +8,19 @@
 @import 'src/styles/pages/home';
 @import 'src/styles/pages/works';
 @import 'src/styles/elements/button';
-@import 'styles/elements/card';
+@import 'src/styles/elements/card';
+@import 'src/styles/elements/job-description';
 @import 'src/styles/utils';
 
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@1,300&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,400;1,500&display=swa");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+
+
+.App {
+  background: $color-background-primary;
+ // padding: 10rem;
+}

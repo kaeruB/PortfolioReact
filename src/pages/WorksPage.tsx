@@ -30,7 +30,7 @@ const drawings: Array<PhotoMetadata> = [
         path: jackie,
         style: {
             top: '26vh',
-            left: '27vw',
+            left: '17vw',
             border: '6px solid white'
         }
     },
@@ -38,7 +38,7 @@ const drawings: Array<PhotoMetadata> = [
         path: gem,
         style: {
             top: '58vh',
-            left: '19vw',
+            left: '9vw',
             border: '6px solid white'
         }
     },
@@ -46,7 +46,7 @@ const drawings: Array<PhotoMetadata> = [
         path: suk,
         style: {
             top: '81vh',
-            left: '37vw',
+            left: '27vw',
             border: '6px solid white'
         }
     },
@@ -54,7 +54,7 @@ const drawings: Array<PhotoMetadata> = [
         path: hwa,
         style: {
             top: '50vh',
-            left: '40vw',
+            left: '30vw',
             border: '6px solid white'
         }
     },
@@ -62,7 +62,7 @@ const drawings: Array<PhotoMetadata> = [
         path: gackt,
         style: {
             top: '23vh',
-            left: '50vw',
+            left: '40vw',
             border: '6px solid white'
         }
     }
@@ -72,7 +72,7 @@ const calligraphy: Array<PhotoMetadata> = [
         path: chou,
         style: {
             top: '28vh',
-            left: '84vw',
+            left: '74vw',
             border: '6px solid black'
         }
     },
@@ -80,7 +80,7 @@ const calligraphy: Array<PhotoMetadata> = [
         path: rei,
         style: {
             top: '77vh',
-            left: '81vw',
+            left: '71vw',
             border: '6px solid black'
         }
     },
@@ -88,7 +88,7 @@ const calligraphy: Array<PhotoMetadata> = [
         path: reiwa,
         style: {
             top: '81vh',
-            left: '51vw',
+            left: '41vw',
             border: '6px solid black'
         }
     },
@@ -96,7 +96,7 @@ const calligraphy: Array<PhotoMetadata> = [
         path: ronbun,
         style: {
             top: '50vh',
-            left: '69vw',
+            left: '59vw',
             border: '6px solid black'
         }
     },
@@ -104,7 +104,7 @@ const calligraphy: Array<PhotoMetadata> = [
         path: sasaki,
         style: {
             top: '18vh',
-            left: '60vw',
+            left: '50vw',
             border: '6px solid black'
         }
     }
@@ -128,7 +128,8 @@ export class WorksPage extends Component<{}, WorksPageState> {
         return (
             pictures.map((photo: PhotoMetadata) =>
                 <div className="works__circle" style={{ top: photo.style.top, left: photo.style.left }}>
-                    <img src={photo.path} alt="Jackie Chan" className="works__image" style={{border: photo.style.border }}/>
+                    {/*style={{border: photo.style.border }}*/}
+                    <img src={photo.path} alt="Jackie Chan" className="works__image" />
                 </div>
             )
         );
@@ -138,12 +139,15 @@ export class WorksPage extends Component<{}, WorksPageState> {
         return (
             <div>
                 <div className='works'>
-                    <div className="width-keeper">
+                    {/*<div className="width-keeper">*/}
+                        <div className="works__header">
+                            <span className="works__header--title">meanwhile, in my free time...</span>
+                        </div>
                         { this.getPictures(drawings) }
                         <div className='works__title works__title--right works__title--white'>
                             <span>Pencil portrait</span>
                         </div>
-                    </div>
+                    {/*</div>*/}
                 </div>
                 <div className='works'>
                     <div className="width-keeper">

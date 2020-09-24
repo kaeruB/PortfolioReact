@@ -1,24 +1,48 @@
 .works {
-  &:first-child {
-    background-image: linear-gradient(to bottom, $color-white, $color-background-secondary);
-  }
-  &:nth-child(2) {
-    background-image: linear-gradient(to bottom, $color-background-secondary, $color-background-primary);
+  &__header {
+    color: $color-font-primary;
+    border-bottom: 4px solid $color-background-secondary;
+    text-align: left;
+    font-size: $font-size-medium;
+
+    width: 100%;
+    max-width: 100rem;
+
+    &--title {
+      font-family: 'Zilla Slab', serif;
+      font-style: italic;
+      letter-spacing: 2.5px;
+    }
   }
 
+  //&:first-child {
+  //  background-image: linear-gradient(to bottom, $color-white, $color-background-secondary);
+  //}
+  //&:nth-child(2) {
+  //  background-image: linear-gradient(to bottom, $color-background-secondary, $color-background-primary);
+  //}
+  //background: #170e19; // #241F36;
+
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+
+  //margin-top: 15rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   position: relative;
 
   &__title {
-    font-size: 11rem;
     position: absolute;
     width: 50vw;
+    font-size: 5rem;
+    color: #aba8bb;
 
     &--right {
-      bottom: 20vh;
       right: -3vw;
+      bottom: 30vh;
     }
 
     &--left {
@@ -27,17 +51,17 @@
     }
 
     &--white {
-      color: white;
+     // color: white;
     }
 
     &--black {
-      color: black;
+     // color: black;
     }
   }
 
   &__circle {
     position: absolute;
-    transform: translate(-50%, -50%);
+    //transform: translate(-50%, -50%); // the page resizes when it's on
 
     &:first-child img {
       animation-delay: 2s;
@@ -58,13 +82,14 @@
 
   &__image {
     border-radius: 50%;
-    border: 6px solid white;
+    border: 6px solid #ABA8BB;
     padding: 6px;
 
     height: 20rem;
     width: 20rem;
 
     animation: makeBigger 10s infinite;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -84,8 +109,8 @@
     opacity: 0.5;
   }
   50% {
-    height: 30rem;
-    width: 30rem;
+    height: 25rem;
+    width: 25rem;
     z-index: 1;
     border-width: 14px;
     padding: 16px;
