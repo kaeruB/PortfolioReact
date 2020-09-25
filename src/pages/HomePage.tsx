@@ -1,11 +1,18 @@
 import React, {Component} from "react";
-import profile from '../assets/img/profile2.png';
+import profile from '../assets/img/profile3.png';
+import {addFadeAwayOnScrollEffect} from "../utils/functions";
 
 
 export class HomePage extends Component {
+
+    componentDidMount() {
+        const homePageElement = document.getElementById("homePageId") as HTMLElement;
+        addFadeAwayOnScrollEffect(homePageElement, 700);
+    }
+
     render() {
         return (
-            <div className="home">
+            <div className="home" id='homePageId'>
                 <span className="home__logo">
                     <svg width='40px' height='80px' id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 135">
                         <path fill="#aba8bb" d="M41,61c4.34,0,8,5,8,11s-3.66,11-8,11-8-5-8-11,3.66-11,8-11m0-3c-6.08,0-11,6.27-11,14s4.92,14,11,14,11-6.27,11-14S47.08,58,41,58Z"/>
@@ -30,7 +37,7 @@ export class HomePage extends Component {
                         I'm a polish front-end developer,
                     </span>
                     <span className="home__welcome--bottom">
-                        currently working at a japanese company.
+                        working at a japanese company.
                     </span>
                 </div>
                 <div className="home__photo">

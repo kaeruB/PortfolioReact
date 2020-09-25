@@ -6,14 +6,14 @@ import JobPage from "./pages/JobPage";
 import Footer from "./pages/Footer";
 
 function App() {
-  return (
-      <div className="App">
-        <HomePage/>
-        <JobPage/>
-        <WorksPage/>
-        <Footer/>
-      </div>
-  );
+    return (
+        <div className="App">
+            <HomePage/>
+            <JobPage/>
+            <WorksPage/>
+            <Footer/>
+        </div>
+    );
 }
 
 export default App;

@@ -14,17 +14,31 @@
 
   &__header {
     color: $color-font-primary;
-    border-bottom: 4px solid $color-background-secondary;
-    text-align: right;
     font-size: $font-size-medium;
 
     width: 100%;
     max-width: 100rem;
 
+    text-align: center;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--line {
+      border-bottom: 4px solid #2C1D2E;
+      width: 100%;
+      line-height: 0px;
+      margin: 0 30px;
+    }
+
     &--title {
       font-family: 'Zilla Slab', serif;
       font-style: italic;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
+      font-size: $font-size-title-large;
+      text-transform: uppercase;
     }
   }
 }

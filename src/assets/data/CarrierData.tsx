@@ -3,7 +3,7 @@ import {CarrierData, PLACES} from "../../model/CarrierDataModel";
 export const CARRIER_DATA: Array<CarrierData> = [
     {
         place: PLACES.NANGOK,
-        link: '',
+        link: 'https://7659sw.com/',
         time: '2/2020 - present',
         technologyIcons: ['vue', 'angular', 'electron'],
         category: 'work',
@@ -26,7 +26,7 @@ export const CARRIER_DATA: Array<CarrierData> = [
     },
     {
         place: PLACES.AGH,
-        link: '',
+        link: 'https://www.agh.edu.pl/en/',
         time: '9/2015 - 7/2020',
         technologyIcons: ['scala', 'java'],
         category: 'education',
@@ -45,7 +45,7 @@ export const CARRIER_DATA: Array<CarrierData> = [
     },
     {
         place: PLACES.JLPT,
-        link: '',
+        link: 'https://www.jlpt.jp/e/',
         time: '12/2019',
         technologyIcons: [ 'japanese' ],
         category: 'education',
@@ -64,7 +64,7 @@ export const CARRIER_DATA: Array<CarrierData> = [
     },
     {
         place: PLACES.AKAMAI,
-        link: '',
+        link: 'https://www.akamai.com/us/en/about/',
         time: '7/2019 - 12/2019',
         technologyIcons: ['react', 'redux'],
         category: 'work',
@@ -87,7 +87,7 @@ export const CARRIER_DATA: Array<CarrierData> = [
     },
     {
         place: PLACES.ANDEA,
-        link: '',
+        link: 'https://www.andea.com/',
         time: '4/2018 - 2/2019',
         technologyIcons: ['sql', 'javascript'],
         category: 'work',

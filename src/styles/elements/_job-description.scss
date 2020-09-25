@@ -2,13 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  margin-top: 5rem;
+  margin-top: 2rem;
 
 
   &__left-panel {
-    width: 15rem;
-    height: 12rem;
+    width: 20rem;
+    height: 17rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,9 +17,10 @@
 
     border: 4px solid $color-background-secondary;
     border-radius: 20px;
+    cursor: pointer;
 
     img {
-      width: 10rem;
+      width: 16rem;
     }
 
     &--date {
@@ -54,18 +54,19 @@
   }
 
   &__divider {
-    width: 10rem;
+    width: 16rem;
     border-bottom: 4px solid $color-background-secondary;
     margin: 0 2rem 0 2rem;
   }
 
   &__right-panel {
-    width: 40rem;
+    width: 50rem;
+    padding-top: 4rem;
     color: $color-font-primary;
 
     &--title {
       display: flex;
-      font-size: $font-size-tertiary;
+      font-size: $font-size-secondary;
       font-weight: bold;
       line-height: 25px;
 
@@ -81,6 +82,7 @@
     &--image {
       float: right;
       width: 30%;
+
       border-radius: 50%;
       shape-outside: circle();
       margin: 10px;
@@ -103,6 +105,35 @@
 
     &--technology {
       line-height: 20px;
+      bottom: 4px;
+      right: 7px;
     }
   }
 }
+
+
+//.job-description__left-panel {
+//  width: 20rem;
+//  height: 14rem;
+//}
+//
+//.job-description__right-panel--image {
+//
+//}
+//
+//.job-description__right-panel {
+//  padding-top: 4rem;
+//}
+//
+//.job-description {
+//  margin-top: 2rem;
+//}
+//
+//.job-description__divider {
+//  width: 16rem;
+//}
+//
+//.job-description__left-panel--technology {
+//  bottom: 4px;
+//  right: 7px;
+//}

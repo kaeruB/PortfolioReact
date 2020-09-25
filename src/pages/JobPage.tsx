@@ -2,8 +2,13 @@ import React, {Component} from "react";
 import JobDescription from "../components/JobDescription";
 import {CARRIER_DATA} from "../assets/data/CarrierData";
 import {CarrierData} from "../model/CarrierDataModel";
+import {addFadeAwayOnScrollEffect} from "../utils/functions";
 
 export class JobPage extends Component {
+    // componentDidMount() {
+    //     const homePageElement = document.getElementById("jobPageId") as HTMLElement;
+    //     addFadeAwayOnScrollEffect(homePageElement, 2000);
+    // }
 
     private renderJobDescription() {
         return CARRIER_DATA.map((d: CarrierData, i: number) => {
@@ -13,9 +18,11 @@ export class JobPage extends Component {
 
     render() {
         return (
-            <div className="job">
+            <div className="job" id='jobPageId'>
                 <div className="job__header">
-                    <span className="job__header--title">my recipe to become a front-end developer in a japanese company.</span>
+                    <div className="job__header--line">&nbsp;</div>
+                    <span className="job__header--title">carrier</span>
+                    <div className="job__header--line">&nbsp;</div>
                 </div>
                 {this.renderJobDescription()}
             </div>

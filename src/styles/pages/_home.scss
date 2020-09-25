@@ -6,14 +6,15 @@
 
   position: relative;
 
-  height: calc(100vh - 20rem);
+  height: 100vh;
 
   &__logo {
     position: absolute;
-    top: 6rem;
-    left: 6rem;
+    top: 8vh;
+    left: 10vw;
     color: $color-font-primary;
     font-size: $font-size-medium;
+    z-index: 1;
 
     &--middle {
       animation: logoAnimation 10s infinite;
@@ -22,31 +23,37 @@
 
   &__welcome {
     position: absolute;
-    bottom: 30%;
-    left: 10rem;
     color: $color-font-primary;
 
     display: flex;
     flex-direction: column;
 
+    z-index: 1;
+    left: 10vw;
+    bottom: 30vh;
+
     &--upper {
       font-size: $font-size-primary;
       margin-bottom: 1rem;
-      font-family: 'Taviraj', serif;
+      //font-family: 'Taviraj', serif;
+      font-family: 'Port Lligat Slab', serif;
     }
 
     &--bottom {
       font-size: $font-size-title;
-      font-family: 'Zilla Slab', serif;
+      // font-family: 'Zilla Slab', serif;
+      //font-family: 'Baloo Tamma 2', cursive;
+      font-family: 'Be Vietnam', sans-serif;
     }
   }
 
   &__photo {
     width: 100%;
+    height: 100vh;
     position: relative;
 
     img {
-      height: 80%;
+      height: 100vh;
       position: absolute;
       right: 0;
       bottom: 0;
@@ -78,3 +85,28 @@
   }
   95% {}
 }
+
+//
+//.home__photo img {
+//  height: 100vh;
+//}
+//
+//.home__photo {
+//  height: 100vh;
+//}
+//
+//.home__welcome {
+//  z-index: 1;
+//  left: 10vw;
+//  bottom: 30vh;
+//}
+//
+//span.home__logo {
+//  z-index: 1;
+//  left: 8vw;
+//  top: 8vh;
+//}
+//
+//.home {
+//  height: 100vh;
+//}
