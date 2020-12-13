@@ -59,6 +59,20 @@
       bottom: 0;
     }
   }
+
+  &__buttons {
+    display: flex;
+
+    margin-top: 14px;
+
+    &--link {
+      margin-right: 10px;
+
+      img {
+        width: 40px;
+      }
+    }
+  }
 }
 
 @keyframes logoAnimation {

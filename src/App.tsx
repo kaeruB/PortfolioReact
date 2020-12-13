@@ -11,7 +11,7 @@ function App() {
             <HomePage/>
             <JobPage/>
             <WorksPage/>
-            <Footer/>
+            {/*<Footer/>*/}
         </div>
     );
 }
