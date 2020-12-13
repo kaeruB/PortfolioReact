@@ -1,3 +1,4 @@
+@import "./../_variables.scss";
 .job-description {
   display: flex;
   justify-content: center;
@@ -110,30 +111,3 @@
     }
   }
 }
-
-
-//.job-description__left-panel {
-//  width: 20rem;
-//  height: 14rem;
-//}
-//
-//.job-description__right-panel--image {
-//
-//}
-//
-//.job-description__right-panel {
-//  padding-top: 4rem;
-//}
-//
-//.job-description {
-//  margin-top: 2rem;
-//}
-//
-//.job-description__divider {
-//  width: 16rem;
-//}
-//
-//.job-description__left-panel--technology {
-//  bottom: 4px;
-//  right: 7px;
-//}

@@ -1,3 +1,4 @@
+@import "./../_variables.scss";
 .home {
   margin: auto;
   background: black;
@@ -99,28 +100,3 @@
   }
   95% {}
 }
-
-//
-//.home__photo img {
-//  height: 100vh;
-//}
-//
-//.home__photo {
-//  height: 100vh;
-//}
-//
-//.home__welcome {
-//  z-index: 1;
-//  left: 10vw;
-//  bottom: 30vh;
-//}
-//
-//span.home__logo {
-//  z-index: 1;
-//  left: 8vw;
-//  top: 8vh;
-//}
-//
-//.home {
-//  height: 100vh;
-//}

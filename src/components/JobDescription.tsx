@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-// @ts-ignore
 import andea from '../assets/img/andea.png';
 import akamai from '../assets/img/akamai.png';
 import nangok from '../assets/img/nangok.png';
