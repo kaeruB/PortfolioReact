@@ -18,12 +18,6 @@ type JobDescriptionProps = {
 }
 
 export class JobDescription extends Component<JobDescriptionProps> {
-    constructor(props: any) {
-        super(props);
-
-        console.log(props);
-    }
-
     private renderPlaceIcon(place: PLACES) {
         switch (place) {
             case PLACES.ANDEA: {
@@ -49,7 +43,6 @@ export class JobDescription extends Component<JobDescriptionProps> {
 
     private renderTechnologyIcons(icons: Array<string>) {
         return icons.map((icon: string, i: number) => {
-            console.log('icon', icon);
             switch (icon) {
                 case 'vue': {
                     return (
@@ -144,7 +137,7 @@ export class JobDescription extends Component<JobDescriptionProps> {
                 }
             }
             return (
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px"></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px"/>
             )
         });
     }

@@ -9,7 +9,6 @@ export class Footer extends Component {
             test.focus();
         }
         const r = document.execCommand("bogacz-agata@wp.pl");
-        console.log('done', r);
     }
 
     render() {

@@ -5,21 +5,18 @@ import {
     addMeshToScene,
     addPicturesToScene,
     getCamera,
-    getControls,
+    getControls, getGalleryPicturesMeshes,
     getLights,
-    getMesh,
+    getGroundMesh,
     getRenderer,
     getScene,
-    updateLightsPosition
+    updateLightsPosition, onGalleryPictureClicked
 } from "../utils/gallery";
-import {calligraphy, drawings, PhotoMetadata} from "../model/Gallery";
+import {PhotoMetadata} from "../model/Gallery";
+import {calligraphy, drawings} from "../utils/constants";
 
 export class WorksPage extends Component<{}> {
     private threeJsGalleryContainer: any;
-
-    constructor(props: any) {
-        super(props);
-    }
 
     componentDidMount() {
         this.createGallery();
@@ -28,17 +25,20 @@ export class WorksPage extends Component<{}> {
     private createGallery(): void {
         const camera: THREE.PerspectiveCamera = getCamera();
         const scene: THREE.Scene = getScene();
-        const mesh: THREE.Mesh = getMesh();
+        const mesh: THREE.Mesh = getGroundMesh();
         const allArtItemsShuffled: Array<PhotoMetadata> = calligraphy.concat(drawings);
         const lights: Array<THREE.PointLight> = getLights();
         const renderer = getRenderer();
+        const galleryPicturesMeshes = getGalleryPicturesMeshes(allArtItemsShuffled);
 
         addMeshToScene(mesh, scene);
-        addPicturesToScene(allArtItemsShuffled, scene);
+        addPicturesToScene(galleryPicturesMeshes, scene);
         addLightsToScene(lights, scene);
 
         this.addGalleryToDOM(renderer);
         const controls = getControls(camera, renderer);
+
+        this.addMouseClickListener(renderer, camera, galleryPicturesMeshes);
 
         const animate = function () {
             requestAnimationFrame(animate);
@@ -50,6 +50,22 @@ export class WorksPage extends Component<{}> {
     private addGalleryToDOM(renderer: THREE.WebGLRenderer): void {
         this.threeJsGalleryContainer.appendChild(renderer.domElement);
         renderer.outputEncoding = THREE.sRGBEncoding;
+    }
+
+    private addMouseClickListener(
+        renderer: THREE.WebGLRenderer,
+        camera: THREE.PerspectiveCamera,
+        galleryPicturesMeshes: Array<THREE.Mesh>
+    ): void {
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+
+        this.threeJsGalleryContainer.addEventListener(
+            'click',
+            (event: MouseEvent) => {
+                onGalleryPictureClicked(event, raycaster, mouse, renderer, camera, galleryPicturesMeshes);
+            }
+        );
     }
 
     render() {

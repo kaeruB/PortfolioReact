@@ -1,37 +1,38 @@
 import * as THREE from "three";
-import {TrackballControls} from "three/examples/jsm/controls/TrackballControls";
-import {LightsSettings} from "./constants";
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import {COLOR, LightsSettings} from "./constants";
 import {LightSetting, PhotoMetadata} from "../model/Gallery";
+import galleryTexture from "../assets/textures/dry_ground4.jpg";
 
 export function getCamera(): THREE.PerspectiveCamera {
-    const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 300 );
-    camera.position.set( 0, 15, 150 );
-    camera.lookAt( 0, 0, 0 );
+    const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 300);
+    camera.position.set(0, 15, 210);
+    camera.lookAt(0, 0, 0);
     return camera;
 }
 
 export function getScene(): THREE.Scene {
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0x1d121f );
-    scene.fog = new THREE.Fog( 0x040306, 10, 300 );
+    scene.background = new THREE.Color(COLOR.color_background_primary);
+    scene.fog = new THREE.Fog(COLOR.color_background_primary, 10, 300);
     return scene;
 }
 
 function getTexture(): any {
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load( "textures/disturb.jpg" );
-    texture.repeat.set( 20, 10 );
+    const texture = textureLoader.load(galleryTexture);
+    texture.repeat.set(20, 10);
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
     texture.encoding = THREE.sRGBEncoding;
     return texture;
 }
 
-export function getMesh(): THREE.Mesh {
+export function getGroundMesh(): THREE.Mesh {
     const texture = getTexture();
-    const groundMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, map: texture } );
-    const mesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 800, 400, 2, 2 ), groundMaterial );
-    mesh.position.y = - 5;
-    mesh.rotation.x = - Math.PI / 2;
+    const groundMaterial = new THREE.MeshPhongMaterial( { color: 0xcfbdd2, map: texture } );
+    const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(800, 800, 2, 2), groundMaterial);
+    mesh.position.y = -5;
+    mesh.rotation.x = -Math.PI / 2;
     return mesh;
 }
 
@@ -39,8 +40,8 @@ export function addMeshToScene(mesh: THREE.Mesh, scene: THREE.Scene): void {
     scene.add(mesh);
 }
 
-export function addPicturesToScene(pictureMetadata: Array<PhotoMetadata>, scene: THREE.Scene): void {
-    pictureMetadata.forEach((metadata: PhotoMetadata) => {
+export function getGalleryPicturesMeshes(pictureMetadata: Array<PhotoMetadata>): Array<THREE.Mesh> {
+    return pictureMetadata.map((metadata: PhotoMetadata) => {
         const pictureTexture = new THREE.TextureLoader().load(metadata.path);
         const pictureGeometry = new THREE.BoxBufferGeometry(15, 15, 15);
         const pictureMaterial = new THREE.MeshBasicMaterial( {map: pictureTexture} );
@@ -49,15 +50,23 @@ export function addPicturesToScene(pictureMetadata: Array<PhotoMetadata>, scene:
         pictureMesh.position.y = metadata.position.y;
         pictureMesh.position.z = metadata.position.z;
 
+        (pictureMesh as any).onMeshClickCallback = () => { console.log('mesh', metadata); }
+
         pictureMesh.matrixAutoUpdate = false;
         pictureMesh.updateMatrix();
-        scene.add(pictureMesh);
+        return pictureMesh;
+    });
+}
+
+export function addPicturesToScene(pictures: Array<THREE.Mesh>, scene: THREE.Scene): void {
+    pictures.forEach((p: THREE.Mesh) => {
+        scene.add(p);
     });
 }
 
 function getLight(color: number, intensity: number, distance: number, decay: number, sphere: THREE.SphereBufferGeometry): THREE.PointLight {
-    const light = new THREE.PointLight(color, intensity, distance, decay );
-    light.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: color } ) ) );
+    const light = new THREE.PointLight(color, intensity, distance, decay);
+    light.add(new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: color })));
     return light;
 }
 
@@ -88,15 +97,15 @@ export function addLightsToScene(lights: Array<THREE.PointLight>, scene: THREE.S
 }
 
 export function getRenderer(): THREE.WebGLRenderer {
-    const renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    const renderer = new THREE.WebGLRenderer( {antialias: true});
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     return renderer;
 }
 
-export function updateLightsPosition(lights: Array<THREE.PointLight>, controls: TrackballControls, renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.PerspectiveCamera): void {
+export function updateLightsPosition(lights: Array<THREE.PointLight>, controls: OrbitControls, renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.PerspectiveCamera): void {
     const time = Date.now() * 0.00025;
-    const d = 150;
+    const d = 80;
 
     LightsSettings.forEach((setting: LightSetting, index: number) => {
         lights[index].position.x = Math.sin(time * setting.xMultiplayer) * d;
@@ -114,10 +123,34 @@ export function getDirectionalLight(): THREE.DirectionalLight {
 }
 
 export function getControls(camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer): any {
-    const controls = new TrackballControls(camera, renderer.domElement);
-    controls.rotateSpeed = 1.0;
-    controls.zoomSpeed = 1.2;
-    controls.panSpeed = 0.8;
-    controls.dynamicDampingFactor = 0.15;
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+    controls.minDistance = 120;
+    controls.maxDistance = 200;
+    controls.maxPolarAngle = Math.PI / 2;
     return controls;
+}
+
+export function onGalleryPictureClicked (
+    event: MouseEvent,
+    raycaster: THREE.Raycaster,
+    mouse: THREE.Vector2,
+    renderer: THREE.WebGLRenderer,
+    camera: THREE.PerspectiveCamera,
+    galleryPicturesMeshes: Array<THREE.Mesh>
+): void {
+    event.preventDefault();
+
+    mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+    mouse.y = - (event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObjects(galleryPicturesMeshes);
+
+    if (intersects.length > 0) {
+        (intersects[0].object as any).onMeshClickCallback();
+    }
 }
