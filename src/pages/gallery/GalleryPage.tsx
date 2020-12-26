@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import GalleryCoordinator from "./utils/GalleryCoordinator";
+import GalleryCoordinator from "./animation/GalleryCoordinator";
 
 export class GalleryPage extends Component<{}> {
     private threeJsGalleryContainer: any;

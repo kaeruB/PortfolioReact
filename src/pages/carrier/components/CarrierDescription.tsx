@@ -1,23 +1,23 @@
 import React, {Component} from "react";
-import andea from '../assets/img/andea.png';
-import akamai from '../assets/img/akamai.png';
-import nangok from '../assets/img/nangok.png';
-import jlpt from '../assets/img/jlpt.png';
-import agh from '../assets/img/agh.png';
+import andea from '../../../assets/img/andea.png';
+import akamai from '../../../assets/img/akamai.png';
+import nangok from '../../../assets/img/nangok.png';
+import jlpt from '../../../assets/img/jlpt.png';
+import agh from '../../../assets/img/agh.png';
 
-import andeaStory from '../assets/img/cats/andea.png';
-import akamaiStory from '../assets/img/cats/akamai.png';
-import nangokStory from '../assets/img/cats/nangoku.png';
-import jlptStory from '../assets/img/cats/jlpt.png';
-import aghStory from '../assets/img/cats/agh.png';
+import andeaStory from '../../../assets/img/cats/andea.png';
+import akamaiStory from '../../../assets/img/cats/akamai.png';
+import nangokStory from '../../../assets/img/cats/nangoku.png';
+import jlptStory from '../../../assets/img/cats/jlpt.png';
+import aghStory from '../../../assets/img/cats/agh.png';
 
-import {CarrierData, DescriptionLinePart, PLACES} from "../model/CarrierDataModel";
+import {CarrierData, DescriptionLinePart, PLACES} from "../../../model/CarrierDataModel";
 
 type JobDescriptionProps = {
     data: CarrierData
 }
 
-export class JobDescription extends Component<JobDescriptionProps> {
+export class CarrierDescription extends Component<JobDescriptionProps> {
     private renderPlaceIcon(place: PLACES) {
         switch (place) {
             case PLACES.ANDEA: {
@@ -257,4 +257,4 @@ export class JobDescription extends Component<JobDescriptionProps> {
     }
 }
 
-export default JobDescription;
+export default CarrierDescription;

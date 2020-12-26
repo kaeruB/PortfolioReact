@@ -1,9 +1,9 @@
 import * as THREE from "three";
-import {COLOR, LightsSettings} from "../../../utils/constants";
+import {COLOR} from "../../../utils/constants";
 import galleryTexture from "../../../assets/textures/dry_ground4.jpg";
 import {LightSetting, PhotoMetadata} from "../../../model/Gallery";
-import {calligraphy, drawings} from "../../../utils/constants";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import {Calligraphy, Drawings, LightsSettings} from "../utils/constants";
 
 export default class GalleryCoordinator {
     private _galleryRef: HTMLDivElement;
@@ -97,7 +97,7 @@ export default class GalleryCoordinator {
     }
 
     private _getGalleryPicturesMeshes(): Array<THREE.Mesh> {
-        const pictureMetadata: Array<PhotoMetadata> = calligraphy.concat(drawings);
+        const pictureMetadata: Array<PhotoMetadata> = Calligraphy.concat(Drawings);
 
         return pictureMetadata.map((metadata: PhotoMetadata) => {
             const pictureTexture = new THREE.TextureLoader().load(metadata.path);
@@ -179,15 +179,6 @@ export default class GalleryCoordinator {
         return dLight
     }
 
-    private _showGalleryPicturePopup(metadata: PhotoMetadata, mouse: THREE.Vector2): void {
-        console.log('clicked', metadata, mouse);
-        const galleryPictureDescriptionDiv = document.createElement('div');
-        galleryPictureDescriptionDiv.innerText = 'test ' + metadata.title;
-        galleryPictureDescriptionDiv.style.position = 'absolute';
-        galleryPictureDescriptionDiv.style.top = `${mouse.y}px`;
-        galleryPictureDescriptionDiv.style.left = `${mouse.x}px`;
-    }
-
     private _onGalleryPictureClicked (
         event: MouseEvent,
         raycaster: THREE.Raycaster,
@@ -205,6 +196,17 @@ export default class GalleryCoordinator {
         if (intersects.length > 0) {
             (intersects[0].object as any).onMeshClickCallback(mouse);
         }
+    }
+
+    private _showGalleryPicturePopup(metadata: PhotoMetadata, mouse: THREE.Vector2): void {
+        console.log('clicked', metadata, mouse);
+        const galleryPictureDescriptionDiv = document.createElement('div');
+        galleryPictureDescriptionDiv.innerText = 'test ' + metadata.title;
+        galleryPictureDescriptionDiv.style.position = 'absolute';
+        galleryPictureDescriptionDiv.style.top = `${mouse.y}px`;
+        galleryPictureDescriptionDiv.style.left = `${mouse.x}px`;
+
+        this._galleryRef.appendChild(galleryPictureDescriptionDiv);
     }
 
     private _updateLightsPosition(): void {

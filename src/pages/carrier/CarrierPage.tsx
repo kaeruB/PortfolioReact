@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import JobDescription from "../components/JobDescription";
-import {CARRIER_DATA} from "../assets/data/CarrierData";
-import {CarrierData} from "../model/CarrierDataModel";
-import {addFadeAwayOnScrollEffect} from "../utils/functions";
+import CarrierDescription from "./components/CarrierDescription";
+import {CARRIER_DATA} from "../../assets/data/CarrierData";
+import {CarrierData} from "../../model/CarrierDataModel";
+import {addFadeAwayOnScrollEffect} from "../../utils/functions";
 
-export class JobPage extends Component {
+export class CarrierPage extends Component {
     // componentDidMount() {
     //     const homePageElement = document.getElementById("jobPageId") as HTMLElement;
     //     addFadeAwayOnScrollEffect(homePageElement, 2000);
@@ -12,7 +12,7 @@ export class JobPage extends Component {
 
     private renderJobDescription() {
         return CARRIER_DATA.map((d: CarrierData, i: number) => {
-            return (<JobDescription key={i} data={d}/>)
+            return (<CarrierDescription key={i} data={d}/>)
         });
     }
 
@@ -30,4 +30,4 @@ export class JobPage extends Component {
     }
 }
 
-export default JobPage;
+export default CarrierPage;
