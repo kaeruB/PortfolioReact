@@ -4,6 +4,7 @@ import galleryTexture from "../../../assets/textures/dry_ground4.jpg";
 import {LightSetting, PhotoMetadata} from "../../../model/Gallery";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {Calligraphy, Drawings, LightsSettings} from "../utils/constants";
+import {XYPosition} from "../../../model/Global";
 
 export default class GalleryCoordinator {
     private _galleryRef: HTMLDivElement;
@@ -108,7 +109,9 @@ export default class GalleryCoordinator {
             pictureMesh.position.y = metadata.position.y;
             pictureMesh.position.z = metadata.position.z;
 
-            (pictureMesh as any).onMeshClickCallback = (mouse: THREE.Vector2) => this._showGalleryPicturePopup(metadata, mouse);
+            (pictureMesh as any).onMeshClickCallback = (mouse: THREE.Vector2, pointerPosition: XYPosition) => {
+                this._showGalleryPicturePopup(metadata, mouse, pointerPosition);
+            }
 
             pictureMesh.matrixAutoUpdate = false;
             pictureMesh.updateMatrix();
@@ -169,7 +172,7 @@ export default class GalleryCoordinator {
 
     private _getLight(color: number, intensity: number, distance: number, decay: number, sphere: THREE.SphereBufferGeometry): THREE.PointLight {
         const light = new THREE.PointLight(color, intensity, distance, decay);
-        light.add(new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: color })));
+        light.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: color })));
         return light;
     }
 
@@ -186,36 +189,44 @@ export default class GalleryCoordinator {
     ): void {
         event.preventDefault();
 
-        mouse.x = (event.clientX / this._renderer.domElement.clientWidth) * 2 - 1;
-        mouse.y = - (event.clientY / this._renderer.domElement.clientHeight) * 2 + 1;
+        const pointerPosition: XYPosition = {
+            x: event.clientX,
+            y: event.clientY
+        }
+        mouse.x = (pointerPosition.x / this._renderer.domElement.clientWidth) * 2 - 1;
+        mouse.y = - (pointerPosition.y / this._renderer.domElement.clientHeight) * 2 + 1;
 
         raycaster.setFromCamera(mouse, this._camera);
 
         const intersects = raycaster.intersectObjects(this._galleryPicturesMeshes);
 
         if (intersects.length > 0) {
-            (intersects[0].object as any).onMeshClickCallback(mouse);
+            (intersects[0].object as any).onMeshClickCallback(mouse, pointerPosition);
         }
     }
 
-    private _showGalleryPicturePopup(metadata: PhotoMetadata, mouse: THREE.Vector2): void {
+    private _showGalleryPicturePopup(metadata: PhotoMetadata, mouse: THREE.Vector2, pointerPosition: XYPosition): void {
         console.log('clicked', metadata, mouse);
         const galleryPictureDescriptionDiv = document.createElement('div');
         galleryPictureDescriptionDiv.innerText = 'test ' + metadata.title;
         galleryPictureDescriptionDiv.style.position = 'absolute';
-        galleryPictureDescriptionDiv.style.top = `${mouse.y}px`;
-        galleryPictureDescriptionDiv.style.left = `${mouse.x}px`;
+        galleryPictureDescriptionDiv.style.top = `${pointerPosition.y}px`;
+        galleryPictureDescriptionDiv.style.left = `${pointerPosition.x}px`;
+        galleryPictureDescriptionDiv.style.color = `red`;
+        galleryPictureDescriptionDiv.style.fontSize = `30px`;
 
         this._galleryRef.appendChild(galleryPictureDescriptionDiv);
     }
 
     private _updateLightsPosition(): void {
         const time = Date.now() * 0.00025;
-        const d = 80;
+        const diameter = 80;
+        const height = 10;
 
         LightsSettings.forEach((setting: LightSetting, index: number) => {
-            this._lights[index].position.x = Math.sin(time * setting.xMultiplayer) * d;
-            this._lights[index].position.z = Math.cos(time * setting.yMultiplayer) * d;
+            this._lights[index].position.x = Math.sin(time * setting.xMultiplayer) * diameter;
+            this._lights[index].position.z = Math.cos(time * setting.zMultiplayer) * diameter;
+            this._lights[index].position.y = Math.cos(time * setting.yMultiplayer) * height + height;
         });
 
         if (this._controls) {
