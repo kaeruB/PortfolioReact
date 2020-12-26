@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import WorksPage from "./pages/WorksPage";
+import GalleryPage from "./pages/gallery/GalleryPage";
 import HomePage from "./pages/HomePage";
 import JobPage from "./pages/JobPage";
 import Footer from "./pages/Footer";
@@ -10,7 +10,7 @@ function App() {
         <div className="App">
             <HomePage/>
             <JobPage/>
-            <WorksPage/>
+            <GalleryPage/>
             {/*<Footer/>*/}
         </div>
     );
