@@ -108,7 +108,7 @@ export const Drawings: Array<PhotoMetadata> = [
             left: '27vw'
         },
         title: 'Jackie Chan',
-        description: 'My first attempt to draw with Charcoal.',
+        description: "Movies with Jackie Chan is my childhood. My first attempt to draw with Charcoal.",
         position: {
             x: -10,
             y: 4,
@@ -122,7 +122,7 @@ export const Drawings: Array<PhotoMetadata> = [
             left: '19vw'
         },
         title: 'G.E.M.',
-        description: "My first attempt to draw a woman's portrait. Pencil.",
+        description: "A Chinese singer. My first attempt to draw a woman's portrait. Pencil.",
         position: {
             x: 40,
             y: 2,
@@ -135,8 +135,8 @@ export const Drawings: Array<PhotoMetadata> = [
             top: '85vh',
             left: '37vw'
         },
-        title: 'Jang Keung-Suk',
-        description: '',
+        title: 'Jang Keun-Suk',
+        description: "Korean actor. I tried to add some colors to my drawing (but it wasn't for me).",
         position: {
             x: 30,
             y: 6,
@@ -150,7 +150,7 @@ export const Drawings: Array<PhotoMetadata> = [
             left: '35vw'
         },
         title: 'Jung Yong-Hwa',
-        description: '',
+        description: 'Korean singer. Pencil.',
         position: {
             x: -40,
             y: 18,
@@ -164,7 +164,7 @@ export const Drawings: Array<PhotoMetadata> = [
             left: '44vw'
         },
         title: 'Gackt',
-        description: '',
+        description: 'Japanese singer. Why does he keeps looking younger?',
         position: {
             x: -30,
             y: 8,
@@ -180,8 +180,8 @@ export const Calligraphy: Array<PhotoMetadata> = [
             top: '43vh',
             left: '78vw'
         },
-        title: 'Chou',
-        description: '',
+        title: 'Chou - intestines',
+        description: "Meaning: intestines. I've had digestion problems since junior high school but thanks to Japanese food I'm getting healthier. ありがとう！",
         position: {
             x: 0,
             y: 3,
@@ -194,8 +194,8 @@ export const Calligraphy: Array<PhotoMetadata> = [
             top: '80vh',
             left: '75vw'
         },
-        title: 'Rei Zero',
-        description: '',
+        title: 'Rei - Zero',
+        description: "Just nothing, just zero:) But it looks cool, isn't it?",
         position: {
             x: 15,
             y: 16,
@@ -208,8 +208,8 @@ export const Calligraphy: Array<PhotoMetadata> = [
             top: '85vh',
             left: '55vw'
         },
-        title: 'Reiwa time era',
-        description: '',
+        title: 'Reiwa - time era',
+        description: 'Current time era in Japan.',
         position: {
             x: -60,
             y: 4,
@@ -222,8 +222,8 @@ export const Calligraphy: Array<PhotoMetadata> = [
             top: '60vh',
             left: '62vw'
         },
-        title: 'Ronbun thesis',
-        description: '',
+        title: 'Ronbun - thesis',
+        description: "Painted in my last year of university as a New Year's wish - I ended my thesis on time!",
         position: {
             x: 70,
             y: 17,
@@ -236,8 +236,8 @@ export const Calligraphy: Array<PhotoMetadata> = [
             top: '33vh',
             left: '60vw'
         },
-        title: 'Sasaki name',
-        description: '',
+        title: 'Sasaki - name',
+        description: "Some mysterious Japanese name of samurai's family. Check out kaziu.jp to learn more:)",
         position: {
             x: -70,
             y: 14,

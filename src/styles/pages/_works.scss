@@ -83,3 +83,32 @@
     position: relative;
   }
 }
+
+.gallery-description {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 450px;
+  height: 170px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 11px -1px #55375a;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  background: $color-background-primary;
+
+  &__title {
+    font-size: $font-size-title;
+    color: $color-highlight;
+    padding-bottom: 10px;
+  }
+
+  &__description {
+    font-size: $font-size-secondary;
+    color: $color-font-primary-light;
+    padding: 0 10px;
+    text-align: center;
+  }
+}

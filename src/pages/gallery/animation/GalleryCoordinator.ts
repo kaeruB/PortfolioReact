@@ -8,6 +8,8 @@ import {XYPosition} from "../../../model/Global";
 
 export default class GalleryCoordinator {
     private _galleryRef: HTMLDivElement;
+    private _galleryTitleRef: HTMLSpanElement;
+    private _galleryDescriptionRef: HTMLSpanElement;
 
     private _camera: THREE.PerspectiveCamera;
     private _scene: THREE.Scene;
@@ -18,9 +20,13 @@ export default class GalleryCoordinator {
     private _controls: OrbitControls | null = null;
 
     public constructor(
-        galleryRef: HTMLDivElement
+        galleryRef: HTMLDivElement,
+        galleryTitleRef: HTMLSpanElement,
+        galleryDescriptionRef: HTMLSpanElement
     ) {
         this._galleryRef = galleryRef;
+        this._galleryTitleRef = galleryTitleRef;
+        this._galleryDescriptionRef = galleryDescriptionRef;
 
         this._camera = this._getCamera();
         this._scene = this._getScene();
@@ -103,20 +109,41 @@ export default class GalleryCoordinator {
         return pictureMetadata.map((metadata: PhotoMetadata) => {
             const pictureTexture = new THREE.TextureLoader().load(metadata.path);
             const pictureGeometry = new THREE.BoxBufferGeometry(15, 15, 15);
-            const pictureMaterial = new THREE.MeshBasicMaterial( {map: pictureTexture} );
+            const pictureMaterial = new THREE.MeshBasicMaterial( {map: pictureTexture, transparent: true, opacity: 0.5} );
             const pictureMesh = new THREE.Mesh(pictureGeometry, pictureMaterial);
             pictureMesh.position.x = metadata.position.x;
             pictureMesh.position.y = metadata.position.y;
             pictureMesh.position.z = metadata.position.z;
-
-            (pictureMesh as any).onMeshClickCallback = (mouse: THREE.Vector2, pointerPosition: XYPosition) => {
-                this._showGalleryPicturePopup(metadata, mouse, pointerPosition);
+            (pictureMesh as any).onMeshClickCallback = (galleryPicture: THREE.Mesh) => {
+                this._highlightGalleryPicture(galleryPicture);
+                this._setDescriptionAndTitle(metadata);
             }
 
             pictureMesh.matrixAutoUpdate = false;
             pictureMesh.updateMatrix();
             return pictureMesh;
         });
+    }
+
+    private _highlightGalleryPicture(galleryPicture: THREE.Mesh): void {
+        (galleryPicture.material as any).opacity = 1;
+        setTimeout(() => {
+            (galleryPicture.material as any).opacity = 0.9;
+        }, 1400);
+        setTimeout(() => {
+            (galleryPicture.material as any).opacity = 0.8;
+        }, 1435);
+        setTimeout(() => {
+            (galleryPicture.material as any).opacity = 0.7;
+        }, 1470);
+        setTimeout(() => {
+            (galleryPicture.material as any).opacity = 0.6;
+        }, 1505);
+    }
+
+    private _setDescriptionAndTitle(metadata: PhotoMetadata): void {
+        this._galleryTitleRef.innerText = metadata.title;
+        this._galleryDescriptionRef.innerText = metadata.description;
     }
 
     private _addMeshToScene(): void {
@@ -201,21 +228,9 @@ export default class GalleryCoordinator {
         const intersects = raycaster.intersectObjects(this._galleryPicturesMeshes);
 
         if (intersects.length > 0) {
-            (intersects[0].object as any).onMeshClickCallback(mouse, pointerPosition);
+            const galleryPicture: THREE.Mesh = intersects[0].object as THREE.Mesh;
+            (intersects[0].object as any).onMeshClickCallback(galleryPicture);
         }
-    }
-
-    private _showGalleryPicturePopup(metadata: PhotoMetadata, mouse: THREE.Vector2, pointerPosition: XYPosition): void {
-        console.log('clicked', metadata, mouse);
-        const galleryPictureDescriptionDiv = document.createElement('div');
-        galleryPictureDescriptionDiv.innerText = 'test ' + metadata.title;
-        galleryPictureDescriptionDiv.style.position = 'absolute';
-        galleryPictureDescriptionDiv.style.top = `${pointerPosition.y}px`;
-        galleryPictureDescriptionDiv.style.left = `${pointerPosition.x}px`;
-        galleryPictureDescriptionDiv.style.color = `red`;
-        galleryPictureDescriptionDiv.style.fontSize = `30px`;
-
-        this._galleryRef.appendChild(galleryPictureDescriptionDiv);
     }
 
     private _updateLightsPosition(): void {
