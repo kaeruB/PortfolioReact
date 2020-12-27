@@ -1,4 +1,4 @@
-import {LightSetting, PhotoMetadata} from "../../../model/Gallery";
+import {LightSetting, PhotoMetadata} from "./models";
 
 import jackie from "../../../assets/img/gallery/jackie.jpg";
 import gem from "../../../assets/img/gallery/gem.jpg";

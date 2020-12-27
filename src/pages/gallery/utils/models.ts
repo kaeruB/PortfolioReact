@@ -1,5 +1,3 @@
-
-
 export interface LightSetting {
     color: number;
     xMultiplayer: number;
@@ -22,4 +20,9 @@ export interface PhotoMetadata {
         y: number,
         z: number
     }
+}
+
+export interface XYPosition {
+    x: number;
+    y: number;
 }

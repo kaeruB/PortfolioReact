@@ -11,7 +11,7 @@ import nangokStory from '../../../assets/img/cats/nangoku.png';
 import jlptStory from '../../../assets/img/cats/jlpt.png';
 import aghStory from '../../../assets/img/cats/agh.png';
 
-import {CarrierData, DescriptionLinePart, PLACES} from "../../../model/CarrierDataModel";
+import {CarrierData, DescriptionLinePart, PLACES} from "../utils/models";
 
 type JobDescriptionProps = {
     data: CarrierData

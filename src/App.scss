@@ -1,14 +1,14 @@
+@import 'styles/base';
+@import 'src/styles/utils';
 @import 'styles/variables';
 
-@import 'styles/base';
-@import 'styles/pages/education';
-@import 'styles/pages/footer';
-@import 'styles/pages/job';
-@import 'src/styles/pages/home';
-@import 'src/styles/pages/works';
 @import 'src/styles/elements/button';
 @import 'src/styles/elements/job-description';
-@import 'src/styles/utils';
+
+@import 'styles/pages/carrier';
+@import 'styles/pages/footer';
+@import 'styles/pages/gallery';
+@import 'src/styles/pages/home';
 
 //@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');

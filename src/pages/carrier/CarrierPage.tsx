@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import CarrierDescription from "./components/CarrierDescription";
 import {CARRIER_DATA} from "../../assets/data/CarrierData";
-import {CarrierData} from "../../model/CarrierDataModel";
+import {CarrierData} from "./utils/models";
 import {addFadeAwayOnScrollEffect} from "../../utils/functions";
 
 export class CarrierPage extends Component {

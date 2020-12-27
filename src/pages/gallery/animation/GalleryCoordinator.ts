@@ -1,10 +1,9 @@
 import * as THREE from "three";
 import {COLOR} from "../../../utils/constants";
 import galleryTexture from "../../../assets/textures/dry_ground4.jpg";
-import {LightSetting, PhotoMetadata} from "../../../model/Gallery";
+import {LightSetting, PhotoMetadata, XYPosition} from "../utils/models";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {Calligraphy, Drawings, LightsSettings} from "../utils/constants";
-import {XYPosition} from "../../../model/Global";
 
 export default class GalleryCoordinator {
     private _galleryRef: HTMLDivElement;
