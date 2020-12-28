@@ -1,0 +1,37 @@
+@import "./../_variables.scss";
+
+.logo {
+  color: $color-font-primary;
+  font-size: $font-size-medium;
+  z-index: 1;
+
+  &--middle {
+    animation: logoAnimation 10s infinite;
+  }
+}
+
+
+@keyframes logoAnimation {
+  0% {
+    transform: translateY(10px);
+  }
+  5% {
+    transform: translateY(10px) rotate(-22deg);
+  }
+  10% {
+    transform: translateY(10px) rotate(30deg);
+  }
+  20% {
+    transform: translateY(10px) rotate(-18deg);
+  }
+  30% {
+    transform: translateY(10px) rotate(20deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-4deg);
+  }
+  75% {
+    transform: translateY(5px) rotateY(180deg);
+  }
+  95% {}
+}

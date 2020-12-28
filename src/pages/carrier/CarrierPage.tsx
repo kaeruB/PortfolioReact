@@ -2,14 +2,8 @@ import React, {Component} from "react";
 import CarrierDescription from "./components/CarrierDescription";
 import {CARRIER_DATA} from "../../assets/data/CarrierData";
 import {CarrierData} from "./utils/models";
-import {addFadeAwayOnScrollEffect} from "../../utils/functions";
 
 export class CarrierPage extends Component {
-    // componentDidMount() {
-    //     const homePageElement = document.getElementById("jobPageId") as HTMLElement;
-    //     addFadeAwayOnScrollEffect(homePageElement, 2000);
-    // }
-
     private renderJobDescription() {
         return CARRIER_DATA.map((d: CarrierData, i: number) => {
             return (<CarrierDescription key={i} data={d}/>)

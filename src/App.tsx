@@ -1,19 +1,13 @@
 import React from 'react';
 import './App.scss';
-import GalleryPage from "./pages/gallery/GalleryPage";
-import HomePage from "./pages/HomePage";
-import CarrierPage from "./pages/carrier/CarrierPage";
-import Footer from "./pages/Footer";
+import Header from "./pages/header/Header";
 
-function App() {
-    return (
-        <div className="App">
-            <HomePage/>
-            <CarrierPage/>
-            <GalleryPage/>
-            {/*<Footer/>*/}
-        </div>
-    );
+class App extends React.Component {
+   render() {
+       return (
+           <Header/>
+       );
+    }
 }
 
 export default App;
