@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import {COLOR} from "../../../utils/constants";
-import galleryTexture from "../../../assets/textures/dry_ground4.jpg";
 import {LightSetting, PhotoMetadata, XYPosition} from "../utils/models";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {Calligraphy, Drawings, LightsSettings} from "../utils/constants";
@@ -12,7 +11,6 @@ export default class GalleryCoordinator {
 
     private _camera: THREE.PerspectiveCamera;
     private _scene: THREE.Scene;
-    private _groundMesh: THREE.Mesh;
     private _lights: Array<THREE.PointLight>;
     private _renderer: THREE.WebGLRenderer;
     private _galleryPicturesMeshes: Array<THREE.Mesh>;
@@ -29,14 +27,12 @@ export default class GalleryCoordinator {
 
         this._camera = this._getCamera();
         this._scene = this._getScene();
-        this._groundMesh = this._getGroundMesh();
         this._lights = this._getLights();
         this._renderer = this._getRenderer();
         this._galleryPicturesMeshes = this._getGalleryPicturesMeshes();
     }
 
     public addElementsToScene(): void {
-        this._addMeshToScene();
         this._addPicturesToScene();
         this._addLightsToScene();
         this._addGalleryPictureMeshClickListener();
@@ -70,20 +66,11 @@ export default class GalleryCoordinator {
         return scene;
     }
 
-    private _getGroundMesh(): THREE.Mesh {
-        const texture = this._getGroundTexture();
-        const groundMaterial = new THREE.MeshPhongMaterial( { color: 0xcfbdd2, map: texture } );
-        const mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(800, 800, 2, 2), groundMaterial);
-        mesh.position.y = -5;
-        mesh.rotation.x = -Math.PI / 2;
-        return mesh;
-    }
-
     private _getLights(): Array<THREE.PointLight> {
         const intensity = 2.5;
         const distance = 100;
         const decay = 2.0;
-        const sphere = new THREE.SphereBufferGeometry( 0.25, 16, 8 );
+        const sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
 
         const pointLightArray: Array<THREE.PointLight> = [];
 
@@ -145,10 +132,6 @@ export default class GalleryCoordinator {
         this._galleryDescriptionRef.innerText = metadata.description;
     }
 
-    private _addMeshToScene(): void {
-        this._scene.add(this._groundMesh);
-    }
-
     private _addPicturesToScene(): void {
         this._galleryPicturesMeshes.forEach((p: THREE.Mesh) => {
             this._scene.add(p);
@@ -185,15 +168,6 @@ export default class GalleryCoordinator {
                 this._onGalleryPictureClicked(event, raycaster, mouse);
             }
         );
-    }
-
-    private _getGroundTexture(): THREE.Texture {
-        const textureLoader = new THREE.TextureLoader();
-        const texture = textureLoader.load(galleryTexture);
-        texture.repeat.set(20, 10);
-        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-        texture.encoding = THREE.sRGBEncoding;
-        return texture;
     }
 
     private _getLight(color: number, intensity: number, distance: number, decay: number, sphere: THREE.SphereBufferGeometry): THREE.PointLight {

@@ -212,7 +212,7 @@ export const Calligraphy: Array<PhotoMetadata> = [
         description: 'Current time era in Japan.',
         position: {
             x: -60,
-            y: 4,
+            y: -34,
             z: 50
         }
     },
@@ -226,7 +226,7 @@ export const Calligraphy: Array<PhotoMetadata> = [
         description: "Painted in my last year of university as a New Year's wish - I ended my thesis on time!",
         position: {
             x: 70,
-            y: 17,
+            y: -17,
             z: -60
         }
     },
@@ -240,7 +240,7 @@ export const Calligraphy: Array<PhotoMetadata> = [
         description: "Some mysterious Japanese name of samurai's family. Check out kaziu.jp to learn more:)",
         position: {
             x: -70,
-            y: 14,
+            y: -44,
             z: -60
         }
     }
