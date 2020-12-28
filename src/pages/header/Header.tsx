@@ -9,13 +9,15 @@ export class Header extends Component {
     render() {
         return (
             <HashRouter>
-                <div className={"header"}>
-                    <div className={"header__link"}>
-                        <Link to="/"><Logo/></Link>
-                    </div>
-                    <div className={"header__right-container"}>
-                        <Link className={"header__link"} to="/about">About me</Link>
-                        <Link className={"header__link"} to="/gallery">Gallery</Link>
+                <div className={"header-container"}>
+                    <div className={"header"}>
+                        <div className={"header__link"}>
+                            <Link to="/"><Logo/></Link>
+                        </div>
+                        <div className={"header__right-container"}>
+                            <Link className={"header__link"} to="/about">About me</Link>
+                            <Link className={"header__link"} to="/gallery">Gallery</Link>
+                        </div>
                     </div>
                 </div>
 
