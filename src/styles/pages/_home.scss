@@ -10,15 +10,22 @@
   height: 100vh;
 
   &__welcome {
-    position: absolute;
-    color: $color-font-primary;
+    position: fixed;
+    bottom: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+
+    width: 100%;
+    max-width: 136.6rem;
+    padding: 0 3rem;
 
     display: flex;
     flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
 
-    z-index: 1;
-    left: 10vw;
-    bottom: 30vh;
+    color: $color-font-primary;
 
     &--upper {
       font-size: $font-size-primary;

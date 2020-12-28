@@ -13,11 +13,6 @@ export class CarrierPage extends Component {
     render() {
         return (
             <div className="job" id='jobPageId'>
-                <div className="job__header">
-                    <div className="job__header--line">&nbsp;</div>
-                    <span className="job__header--title">carrier</span>
-                    <div className="job__header--line">&nbsp;</div>
-                </div>
                 {this.renderJobDescription()}
             </div>
         );
