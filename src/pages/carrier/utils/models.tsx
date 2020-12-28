@@ -21,3 +21,7 @@ export enum PLACES {
     ANDEA,
     JLPT
 }
+
+export type JobDescriptionProps = {
+    data: CarrierData
+}

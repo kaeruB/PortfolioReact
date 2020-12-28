@@ -11,11 +11,7 @@ import nangokStory from '../../../assets/img/cats/nangoku.png';
 import jlptStory from '../../../assets/img/cats/jlpt.png';
 import aghStory from '../../../assets/img/cats/agh.png';
 
-import {CarrierData, DescriptionLinePart, PLACES} from "../utils/models";
-
-type JobDescriptionProps = {
-    data: CarrierData
-}
+import {DescriptionLinePart, JobDescriptionProps, PLACES} from "../utils/models";
 
 export class CarrierDescription extends Component<JobDescriptionProps> {
     private renderPlaceIcon(place: PLACES) {
@@ -143,15 +139,6 @@ export class CarrierDescription extends Component<JobDescriptionProps> {
     }
 
     private renderDescription(description: Array<DescriptionLinePart>) {
-        // return description.map((l: Array<DescriptionLinePart>, i: number) => {
-        //
-        //     return <div key={i}> {l.map( (p: DescriptionLinePart, j: number ) => {
-        //         const classNames: string = p.highlighted ?
-        //             'description-line description-line--highlighted' :
-        //             'description-line';
-        //         return (<span key={i + j} className={classNames}>{p.text}</span>);
-        //     }) } </div>;
-        // });
         return (
             <p>
                 {
@@ -235,24 +222,13 @@ export class CarrierDescription extends Component<JobDescriptionProps> {
                             <div>{this.renderCategoryIcon(this.props.data.category)}</div>
                             <span>{this.props.data.position}</span>
                         </div>
-
-                        {/*<div className="job-description__right-panel--description-container">*/}
-                        {/*<div className="job-description__right-panel--image">*/}
-                        {/*    {this.renderStoryImage(this.props.data.place)}*/}
-                        {/*</div>*/}
                         <div className="job-description__right-panel--description">
                             {this.renderDescription(this.props.data.description)}
                             {this.getTechnologies(this.props.data.technology)}
                         </div>
-                        {/*</div>*/}
                     </div>
-
                 </div>
-
             </div>
-
-
-
         );
     }
 }

@@ -4,13 +4,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(62deg, $color-background-primary, $color-background-secondary);//#301e33);
-}
-
-.education {
-  height: 100vh;
-  background-image: linear-gradient(to bottom, $color-background-secondary, $color-white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(62deg, $color-background-primary, $color-background-secondary);
 }
