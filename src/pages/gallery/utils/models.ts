@@ -5,14 +5,8 @@ export interface LightSetting {
     zMultiplayer: number;
 }
 
-export interface PhotoStyle {
-    top: string;
-    left: string;
-}
-
 export interface PhotoMetadata {
     path: string;
-    style: PhotoStyle;
     title: string;
     description: string;
     position: {

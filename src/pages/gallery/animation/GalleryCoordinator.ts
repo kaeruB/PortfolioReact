@@ -2,7 +2,7 @@ import * as THREE from "three";
 import {COLOR} from "../../../utils/constants";
 import {LightSetting, PhotoMetadata, XYPosition} from "../utils/models";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
-import {Calligraphy, Drawings, LightsSettings} from "../utils/constants";
+import {Calligraphy, CONTROLS_MAX_DISTANCE, CONTROLS_MIN_DISTANCE, Drawings, LightsSettings} from "../utils/constants";
 
 export default class GalleryCoordinator {
     private _galleryRef: HTMLDivElement;
@@ -54,7 +54,7 @@ export default class GalleryCoordinator {
 
     private _getCamera(): THREE.PerspectiveCamera {
         const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 300);
-        camera.position.set(0, 15, 210);
+        camera.position.set(0, 150, 0);
         camera.lookAt(0, 0, 0);
         return camera;
     }
@@ -97,9 +97,9 @@ export default class GalleryCoordinator {
             const pictureGeometry = new THREE.BoxBufferGeometry(15, 15, 15);
             const pictureMaterial = new THREE.MeshBasicMaterial( {map: pictureTexture, transparent: true, opacity: 0.5} );
             const pictureMesh = new THREE.Mesh(pictureGeometry, pictureMaterial);
-            pictureMesh.position.x = metadata.position.x;
-            pictureMesh.position.y = metadata.position.y;
-            pictureMesh.position.z = metadata.position.z;
+            pictureMesh.position.x = CONTROLS_MAX_DISTANCE * metadata.position.x;
+            pictureMesh.position.y = CONTROLS_MAX_DISTANCE * metadata.position.y;
+            pictureMesh.position.z = CONTROLS_MAX_DISTANCE * metadata.position.z;
             (pictureMesh as any).onMeshClickCallback = (galleryPicture: THREE.Mesh) => {
                 this._highlightGalleryPicture(galleryPicture);
                 this._setDescriptionAndTitle(metadata);
@@ -152,8 +152,8 @@ export default class GalleryCoordinator {
         controls.enableDamping = true;
         controls.dampingFactor = 0.05;
 
-        controls.minDistance = 120;
-        controls.maxDistance = 200;
+        controls.minDistance = CONTROLS_MIN_DISTANCE;
+        controls.maxDistance = CONTROLS_MAX_DISTANCE;
         controls.maxPolarAngle = Math.PI / 2;
         return controls;
     }

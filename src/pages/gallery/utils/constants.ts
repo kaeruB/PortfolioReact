@@ -10,7 +10,12 @@ import reiwa from "../../../assets/img/gallery/reiwa.jpg";
 import ronbun from "../../../assets/img/gallery/ronbun.jpg";
 import sasaki from "../../../assets/img/gallery/sasaki.jpg";
 import chou from "../../../assets/img/gallery/chou.jpg";
+import eevee from "../../../assets/img/gallery/eevee.jpg";
+import me from "../../../assets/img/gallery/me.jpg";
+import nisemono1 from "../../../assets/img/gallery/nisemono1.jpg";
 
+export const CONTROLS_MAX_DISTANCE = 200;
+export const CONTROLS_MIN_DISTANCE = 100;
 
 export const LightsSettings: Array<LightSetting> = [
     {
@@ -103,72 +108,83 @@ export const LightsSettings: Array<LightSetting> = [
 export const Drawings: Array<PhotoMetadata> = [
     {
         path: jackie,
-        style: {
-            top: '36vh',
-            left: '27vw'
-        },
         title: 'Jackie Chan',
         description: "Movies with Jackie Chan is my childhood. My first attempt to draw with Charcoal.",
         position: {
-            x: -10,
-            y: 4,
-            z: 80
+            x: 0.1,
+            y: 0.5,
+            z: 0.14
         }
-    },
+    }
+    ,
     {
         path: gem,
-        style: {
-            top: '68vh',
-            left: '19vw'
-        },
         title: 'G.E.M.',
         description: "A Chinese singer. My first attempt to draw a woman's portrait. Pencil.",
         position: {
-            x: 40,
-            y: 2,
-            z: 50
+            x: -0.3,
+            y: 0.2,
+            z: 0.3
         }
     },
     {
         path: suk,
-        style: {
-            top: '85vh',
-            left: '37vw'
-        },
         title: 'Jang Keun-Suk',
-        description: "Korean actor. I tried to add some colors to my drawing (but it wasn't for me).",
+        description: "Korean actor. I tried to add some colors to my drawing (but it wasn't for me). I've got professional crayons from a friend (thanks!)",
         position: {
-            x: 30,
-            y: 6,
-            z: 10
+            x: 0.3,
+            y: 0.1,
+            z: -0.3
         }
     },
     {
         path: hwa,
-        style: {
-            top: '60vh',
-            left: '35vw'
-        },
         title: 'Jung Yong-Hwa',
         description: 'Korean singer. Pencil.',
         position: {
-            x: -40,
-            y: 18,
-            z: -40
+            x: -0.3,
+            y: 0,
+            z: -0.3
         }
     },
     {
         path: gackt,
-        style: {
-            top: '33vh',
-            left: '44vw'
-        },
         title: 'Gackt',
-        description: 'Japanese singer. Why does he keeps looking younger?',
+        description: 'Japanese singer. Why does he keeps looking younger? Pencil.',
         position: {
-            x: -30,
-            y: 8,
-            z: 30
+            x: -0.4,
+            y: 0.3,
+            z: -0.2
+        }
+    },
+    {
+        path: eevee,
+        title: 'Eevee',
+        description: "Eevee - pokemon. Crayons for kids, I couldn't afford good staff in junior high school:)",
+        position: {
+            x: 0.7,
+            y: -0.2,
+            z: 0.2
+        }
+    },
+    {
+        path: me,
+        title: 'Me',
+        description: 'My first steps using Illustrator. And my favorite red blouse with cats.',
+        position: {
+            x: 0,
+            y: -0.25,
+            z: 0.1
+        }
+    },
+    {
+        path: nisemono1,
+        title: 'Cat',
+        description: "I love cat's but when I touch them my hand gets swollen and I sneeze... (allergy). Illustrator.",
+        position: {
+            x: -0.7,
+            y: -0.2,
+            z: 0.1
         }
     }
 ];
@@ -176,72 +192,52 @@ export const Drawings: Array<PhotoMetadata> = [
 export const Calligraphy: Array<PhotoMetadata> = [
     {
         path: chou,
-        style: {
-            top: '43vh',
-            left: '78vw'
-        },
         title: 'Chou - intestines',
         description: "Meaning: intestines. I've had digestion problems since junior high school but thanks to Japanese food I'm getting healthier. ありがとう！",
         position: {
-            x: 0,
-            y: 3,
-            z: -30
+            x: -0.2,
+            y: 0.5,
+            z: 0
         }
     },
     {
         path: rei,
-        style: {
-            top: '80vh',
-            left: '75vw'
-        },
         title: 'Rei - Zero',
         description: "Just nothing, just zero:) But it looks cool, isn't it?",
         position: {
-            x: 15,
-            y: 16,
-            z: 20
+            x: 0,
+            y: 0,
+            z: 0
         }
     },
     {
         path: reiwa,
-        style: {
-            top: '85vh',
-            left: '55vw'
-        },
         title: 'Reiwa - time era',
         description: 'Current time era in Japan.',
         position: {
-            x: -60,
-            y: -34,
-            z: 50
+            x: 0,
+            y: 0.2,
+            z: -0.1
         }
     },
     {
         path: ronbun,
-        style: {
-            top: '60vh',
-            left: '62vw'
-        },
         title: 'Ronbun - thesis',
         description: "Painted in my last year of university as a New Year's wish - I ended my thesis on time!",
         position: {
-            x: 70,
-            y: -17,
-            z: -60
+            x: 0.3,
+            y: 0.1,
+            z: 0.09
         }
     },
     {
         path: sasaki,
-        style: {
-            top: '33vh',
-            left: '60vw'
-        },
         title: 'Sasaki - name',
         description: "Some mysterious Japanese name of samurai's family. Check out kaziu.jp to learn more:)",
         position: {
-            x: -70,
-            y: -44,
-            z: -60
+            x: 0.35,
+            y: 0.35,
+            z: -0.1
         }
     }
 ];
