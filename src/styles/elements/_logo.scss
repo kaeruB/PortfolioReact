@@ -5,6 +5,10 @@
   font-size: $font-size-medium;
   z-index: 1;
 
+  @include respond(phone) {
+    font-size: $font-size-mobile-medium;
+  }
+
   &--middle {
     animation: logoAnimation 10s infinite;
   }

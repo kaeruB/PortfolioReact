@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import profile from '../assets/img/home/profile5.jpg';
+import profileMobile from '../assets/img/home/profile-mobile.jpg';
 import linked from "../assets/img/home/linked.png";
 import wantedly from "../assets/img/home/wantedly.png";
 import git from "../assets/img/home/git.png";
@@ -32,7 +33,11 @@ export class HomePage extends Component {
                     </div>
                 </div>
                 <div className="home__photo">
-                    <img src={profile} alt="Me"/>
+                     <img
+                         srcSet={`${profileMobile} 600w, ${profile} 2026w`}
+                         sizes={"(max-width: 600px) 600px, 2026px"}
+                         alt={"Me"}
+                     />
                 </div>
             </div>
         );

@@ -5,4 +5,147 @@
   flex-direction: column;
   align-items: center;
   background: linear-gradient(62deg, $color-background-primary, $color-background-secondary);
+
+  @include respond(tab-port) {
+    padding: 7rem 0;
+  }
+}
+
+.job-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  @include respond(tab-port) {
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__left-panel {
+    width: 20rem;
+    height: 17rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    border: 4px solid $color-background-secondary;
+    border-radius: 20px;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      width: 67%;
+      height: 12rem;
+    }
+
+    img {
+      width: 16rem;
+
+      @include respond(tab-port) {
+        width: 14rem;
+      }
+    }
+
+    &--date {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      transform: translate(6px, 13px) rotate(-15deg);
+      color: $color-text-light;
+    }
+
+    &--technology {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      padding-right: 5px;
+
+      .technology-icon {
+        width: 24px;
+      }
+    }
+
+    &--education {
+      border-radius: 50%;
+    }
+  }
+
+  &__divider {
+    width: 16rem;
+    border-bottom: 4px solid $color-background-secondary;
+    margin: 0 2rem 0 2rem;
+
+    @include respond(tab-port) {
+      margin: 0 1rem;
+      display: none;
+      width: 0;
+    }
+  }
+
+  &__right-panel {
+    width: 50rem;
+    padding-top: 4rem;
+    color: $color-font-primary;
+
+    @include respond(tab-port) {
+      width: 85vw;
+    }
+
+    &--title {
+      display: flex;
+      font-size: $font-size-secondary;
+      font-weight: bold;
+      line-height: 25px;
+
+      @include respond(phone) {
+        font-size: $font-size-mobile-secondary;
+      }
+
+      div:first-child {
+        padding-right: 5px;
+      }
+    }
+
+    &--image {
+      float: right;
+      width: 30%;
+
+      border-radius: 50%;
+      shape-outside: circle();
+      margin: 10px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &--description {
+      font-size:$font-size-tertiary;
+      display: flex;
+      flex-direction: column;
+      text-align: justify;
+
+      @include respond(phone) {
+        font-size: $font-size-mobile-tertiary;
+      }
+
+      .description-line--highlighted {
+        color: $color-highlight;
+      }
+    }
+
+    &--technology {
+      line-height: 20px;
+      bottom: 4px;
+      right: 7px;
+    }
+  }
 }

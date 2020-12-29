@@ -23,12 +23,24 @@
 
   background: $color-background-primary;
 
+  visibility: hidden;
+  animation: 2s fadeInAnimation;
+  animation-fill-mode: forwards;
+
+  @include respond(phone) {
+    width: 80vw;
+  }
+
   &__title {
     font-size: $font-size-title;
     color: $color-highlight;
     padding-bottom: 10px;
 
     font-family: 'Be Vietnam', sans-serif;
+
+    @include respond(phone) {
+      font-size: $font-size-mobile-title;
+    }
   }
 
   &__description {
@@ -36,5 +48,19 @@
     color: $color-font-primary-light;
     padding: 0 10px;
     text-align: center;
+
+    @include respond(phone) {
+      font-size: $font-size-mobile-secondary;
+    }
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
   }
 }

@@ -30,11 +30,19 @@
     &--upper {
       font-size: $font-size-primary;
       margin-bottom: 1rem;
+
+      @include respond(phone) {
+        font-size: $font-size-mobile-primary;
+      }
     }
 
     &--bottom {
       font-size: $font-size-title;
       font-family: 'Be Vietnam', sans-serif;
+
+      @include respond(phone) {
+        font-size: $font-size-mobile-title;
+      }
     }
   }
 

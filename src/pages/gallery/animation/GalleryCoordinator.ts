@@ -51,7 +51,7 @@ export default class GalleryCoordinator {
 
     public animate(): void {
         requestAnimationFrame(() => this.animate());
-        this._updateLightsPosition();
+        this._updateLightsAndControlsPosition();
     }
 
     private _getCamera(): THREE.PerspectiveCamera {
@@ -157,6 +157,8 @@ export default class GalleryCoordinator {
         controls.minDistance = CONTROLS_MIN_DISTANCE;
         controls.maxDistance = CONTROLS_MAX_DISTANCE;
         controls.maxPolarAngle = Math.PI / 2;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.3;
         return controls;
     }
 
@@ -232,7 +234,7 @@ export default class GalleryCoordinator {
         }
     }
 
-    private _updateLightsPosition(): void {
+    private _updateLightsAndControlsPosition(): void {
         const time = Date.now() * 0.00025;
         const diameter = 80;
         const height = 10;
