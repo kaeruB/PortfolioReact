@@ -3,6 +3,7 @@ import {COLOR} from "../../../utils/constants";
 import {LightSetting, PhotoMetadata, XYPosition} from "../utils/models";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {Calligraphy, CONTROLS_MAX_DISTANCE, CONTROLS_MIN_DISTANCE, Drawings, LightsSettings} from "../utils/constants";
+import {debounce} from 'lodash';
 
 export default class GalleryCoordinator {
     private _galleryRef: HTMLDivElement;
@@ -36,6 +37,7 @@ export default class GalleryCoordinator {
         this._addPicturesToScene();
         this._addLightsToScene();
         this._addGalleryPictureMeshClickListener();
+        this._addResizeWatcher();
     }
 
     public addGalleryToDOM(): void {
@@ -168,6 +170,22 @@ export default class GalleryCoordinator {
                 this._onGalleryPictureClicked(event, raycaster, mouse);
             }
         );
+        this._galleryRef.addEventListener(
+            'touchstart',
+            (event: TouchEvent) => {
+                this._onGalleryPictureClicked(event, raycaster, mouse);
+            }
+        );
+    }
+
+    private _addResizeWatcher(): void {
+        window.addEventListener('resize', debounce(() => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            this._renderer.setSize(width, height);
+            this._camera.aspect = width / height;
+            this._camera.updateProjectionMatrix();
+        }, 50));
     }
 
     private _getLight(color: number, intensity: number, distance: number, decay: number, sphere: THREE.SphereBufferGeometry): THREE.PointLight {
@@ -183,15 +201,23 @@ export default class GalleryCoordinator {
     }
 
     private _onGalleryPictureClicked (
-        event: MouseEvent,
+        event: MouseEvent | TouchEvent,
         raycaster: THREE.Raycaster,
         mouse: THREE.Vector2
     ): void {
         event.preventDefault();
+        let pointerPosition: XYPosition;
 
-        const pointerPosition: XYPosition = {
-            x: event.clientX,
-            y: event.clientY
+        if (event instanceof TouchEvent) {
+            pointerPosition = {
+                x: event.touches[0].clientX,
+                y: event.touches[0].clientY
+            }
+        } else { // if (event instanceof MouseEvent)
+            pointerPosition = {
+                x: event.clientX,
+                y: event.clientY
+            }
         }
         mouse.x = (pointerPosition.x / this._renderer.domElement.clientWidth) * 2 - 1;
         mouse.y = - (pointerPosition.y / this._renderer.domElement.clientHeight) * 2 + 1;
