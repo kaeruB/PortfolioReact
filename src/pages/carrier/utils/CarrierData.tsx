@@ -1,4 +1,4 @@
-import {CarrierData, PLACES} from "../../pages/carrier/utils/models";
+import {CarrierData, PLACES} from "./models";
 
 export const CARRIER_DATA: Array<CarrierData> = [
     {

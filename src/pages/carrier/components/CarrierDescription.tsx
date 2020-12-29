@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import andea from '../../../assets/img/andea.png';
-import akamai from '../../../assets/img/akamai.png';
-import nangok from '../../../assets/img/nangok.png';
-import jlpt from '../../../assets/img/jlpt.png';
-import agh from '../../../assets/img/agh.png';
+import andea from '../../../assets/img/carrier/andea.png';
+import akamai from '../../../assets/img/carrier/akamai.png';
+import nangok from '../../../assets/img/carrier/nangok.png';
+import jlpt from '../../../assets/img/carrier/jlpt.png';
+import agh from '../../../assets/img/carrier/agh.png';
 
 import andeaStory from '../../../assets/img/cats/andea.png';
 import akamaiStory from '../../../assets/img/cats/akamai.png';
