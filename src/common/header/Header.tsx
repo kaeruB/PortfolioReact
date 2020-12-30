@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import Logo from "./components/Logo";
 import {HashRouter, Link, Route} from "react-router-dom";
-import CarrierPage from "../carrier/CarrierPage";
-import GalleryPage from "../gallery/GalleryPage";
-import HomePage from "../HomePage";
+import CarrierPage from "../../pages/carrier/CarrierPage";
+import GalleryPage from "../../pages/gallery/GalleryPage";
+import HomePage from "../../pages/home/HomePage";
 
 export class Header extends Component {
     render() {

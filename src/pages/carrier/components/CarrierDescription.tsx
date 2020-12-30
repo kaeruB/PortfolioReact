@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, ReactElement} from "react";
 import andea from '../../../assets/img/carrier/andea.png';
 import akamai from '../../../assets/img/carrier/akamai.png';
 import nangok from '../../../assets/img/carrier/nangok.png';
@@ -11,10 +11,10 @@ import nangokStory from '../../../assets/img/cats/nangoku.png';
 import jlptStory from '../../../assets/img/cats/jlpt.png';
 import aghStory from '../../../assets/img/cats/agh.png';
 
-import {DescriptionLinePart, JobDescriptionProps, PLACES} from "../utils/models";
+import {DescriptionLinePart, CarrierDescriptionProps, PLACES} from "../utils/models";
 
-export class CarrierDescription extends Component<JobDescriptionProps> {
-    private renderPlaceIcon(place: PLACES) {
+export class CarrierDescription extends Component<CarrierDescriptionProps> {
+    private _renderPlaceIcon(place: PLACES): ReactElement {
         switch (place) {
             case PLACES.ANDEA: {
                 return (<img src={andea} alt="Andea"/>);
@@ -37,7 +37,7 @@ export class CarrierDescription extends Component<JobDescriptionProps> {
         }
     }
 
-    private renderTechnologyIcons(icons: Array<string>) {
+    private _renderTechnologyIcons(icons: Array<string>): Array<ReactElement> {
         return icons.map((icon: string, i: number) => {
             switch (icon) {
                 case 'vue': {
@@ -138,7 +138,7 @@ export class CarrierDescription extends Component<JobDescriptionProps> {
         });
     }
 
-    private renderDescription(description: Array<DescriptionLinePart>) {
+    private _renderDescription(description: Array<DescriptionLinePart>): ReactElement {
         return (
             <p>
                 {
@@ -153,7 +153,7 @@ export class CarrierDescription extends Component<JobDescriptionProps> {
         );
     }
 
-    private renderStoryImage(place: PLACES) {
+    private _renderStoryImage(place: PLACES): ReactElement {
         switch (place) {
             case PLACES.ANDEA: {
                 return (<img src={andeaStory} alt="Andea story"/>);
@@ -176,16 +176,16 @@ export class CarrierDescription extends Component<JobDescriptionProps> {
         }
     }
 
-    private getTechnologies(technologies: Array<string>) {
+    private _getTechnologies(technologies: Array<string>): ReactElement {
         const technologiesJoined = technologies.join(' / ');
         return (
-            <span className="job-description__right-panel--technology">
+            <span className="carrier-description__right-panel--technology">
                 {technologiesJoined}
             </span>
         );
     }
 
-    private renderCategoryIcon(category: string) {
+    private _renderCategoryIcon(category: string): ReactElement {
         return category === 'education' ?
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width={'28px'} height={'28px'}>
                 <g id="education" fill={'#ABA8BB'}>
@@ -199,32 +199,31 @@ export class CarrierDescription extends Component<JobDescriptionProps> {
 
     render() {
         return (
-
-            <div className="job-description">
-                <a target="_blank" rel="noopener noreferrer" href={this.props.data.link} className={"job-description__left-panel" +
-                (this.props.data.category === 'education' ? ' job-description__left-panel--education' : '')}>
-                    <span className="job-description__left-panel--date">{this.props.data.time}</span>
-                    {this.renderPlaceIcon(this.props.data.place)}
-                    <div className="job-description__left-panel--technology">
-                        {this.renderTechnologyIcons(this.props.data.technologyIcons)}
+            <div className="carrier-description">
+                <a target="_blank" rel="noopener noreferrer" href={this.props.data.link} className={"carrier-description__left-panel" +
+                (this.props.data.category === 'education' ? ' carrier-description__left-panel--education' : '')}>
+                    <span className="carrier-description__left-panel--date">{this.props.data.time}</span>
+                    {this._renderPlaceIcon(this.props.data.place)}
+                    <div className="carrier-description__left-panel--technology">
+                        {this._renderTechnologyIcons(this.props.data.technologyIcons)}
                     </div>
                 </a>
-                <div className="job-description__divider">
+                <div className="carrier-description__divider">
                     &nbsp;
                 </div>
-                <div className="job-description__right-panel">
+                <div className="carrier-description__right-panel">
 
-                    <div className="job-description__right-panel--image">
-                        {this.renderStoryImage(this.props.data.place)}
+                    <div className="carrier-description__right-panel--image">
+                        {this._renderStoryImage(this.props.data.place)}
                     </div>
-                    <div className="job-description__text-description">
-                        <div className="job-description__right-panel--title">
-                            <div>{this.renderCategoryIcon(this.props.data.category)}</div>
+                    <div className="carrier-description__text-description">
+                        <div className="carrier-description__right-panel--title">
+                            <div>{this._renderCategoryIcon(this.props.data.category)}</div>
                             <span>{this.props.data.position}</span>
                         </div>
-                        <div className="job-description__right-panel--description">
-                            {this.renderDescription(this.props.data.description)}
-                            {this.getTechnologies(this.props.data.technology)}
+                        <div className="carrier-description__right-panel--description">
+                            {this._renderDescription(this.props.data.description)}
+                            {this._getTechnologies(this.props.data.technology)}
                         </div>
                     </div>
                 </div>

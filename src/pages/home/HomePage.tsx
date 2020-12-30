@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import profile from '../assets/img/home/profile5.jpg';
-import profileMobile from '../assets/img/home/profile-mobile.jpg';
-import linked from "../assets/img/home/linked.png";
-import wantedly from "../assets/img/home/wantedly.png";
-import git from "../assets/img/home/git.png";
+import profile from '../../assets/img/home/profile5.jpg';
+import profileMobile from '../../assets/img/home/profile-mobile.jpg';
+import linked from "../../assets/img/home/linked.png";
+import wantedly from "../../assets/img/home/wantedly.png";
+import git from "../../assets/img/home/git.png";
 
 
 export class HomePage extends Component {

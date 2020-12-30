@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.scss';
-import Header from "./pages/header/Header";
+import Header from "./common/header/Header";
 import loader from "./assets/img/bigcat.gif";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 
    return (
        <div>
-           <div ref={ref => (loaderElementRef = ref)} className={"loader"}><img src={loader}/></div>
+           <div ref={ref => (loaderElementRef = ref)} className={"loader"}><img src={loader} alt={"Loading"}/></div>
            <Header/>
        </div>
    );

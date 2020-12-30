@@ -1,8 +1,14 @@
 import * as THREE from "three";
-import {COLOR} from "../../../utils/constants";
 import {LightSetting, PhotoMetadata, XYPosition} from "../utils/models";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
-import {Calligraphy, CONTROLS_MAX_DISTANCE, CONTROLS_MIN_DISTANCE, Drawings, LightsSettings} from "../utils/constants";
+import {
+    Calligraphy,
+    COLOR,
+    CONTROLS_MAX_DISTANCE,
+    CONTROLS_MIN_DISTANCE,
+    Drawings,
+    LightsSettings
+} from "../utils/constants";
 import {debounce} from 'lodash';
 
 export default class GalleryCoordinator {
@@ -117,16 +123,16 @@ export default class GalleryCoordinator {
         (galleryPicture.material as any).opacity = 1;
         setTimeout(() => {
             (galleryPicture.material as any).opacity = 0.9;
-        }, 1400);
+        }, 1500);
         setTimeout(() => {
             (galleryPicture.material as any).opacity = 0.8;
-        }, 1435);
+        }, 1535);
         setTimeout(() => {
             (galleryPicture.material as any).opacity = 0.7;
-        }, 1470);
+        }, 1570);
         setTimeout(() => {
             (galleryPicture.material as any).opacity = 0.6;
-        }, 1505);
+        }, 1605);
     }
 
     private _setDescriptionAndTitle(metadata: PhotoMetadata): void {
@@ -197,7 +203,7 @@ export default class GalleryCoordinator {
     }
 
     private _getDirectionalLight(): THREE.DirectionalLight {
-        const dLight = new THREE.DirectionalLight(0xffffff, 0.05 );
+        const dLight = new THREE.DirectionalLight(COLOR.color_white, 0.05);
         dLight.position.set(0.5, 1, 0).normalize();
         return dLight
     }

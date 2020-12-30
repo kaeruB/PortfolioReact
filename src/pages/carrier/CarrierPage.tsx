@@ -4,7 +4,7 @@ import {CARRIER_DATA} from "./utils/CarrierData";
 import {CarrierData} from "./utils/models";
 
 export class CarrierPage extends Component {
-    private renderJobDescription() {
+    private _renderCarrierDescription() {
         return CARRIER_DATA.map((d: CarrierData, i: number) => {
             return (<CarrierDescription key={i} data={d}/>)
         });
@@ -12,8 +12,8 @@ export class CarrierPage extends Component {
 
     render() {
         return (
-            <div className="job" id='jobPageId'>
-                {this.renderJobDescription()}
+            <div className="carrier">
+                {this._renderCarrierDescription()}
             </div>
         );
     }

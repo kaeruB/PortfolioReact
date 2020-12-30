@@ -22,6 +22,6 @@ export enum PLACES {
     JLPT
 }
 
-export type JobDescriptionProps = {
+export type CarrierDescriptionProps = {
     data: CarrierData
 }

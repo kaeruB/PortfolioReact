@@ -16,6 +16,10 @@ import nisemono1 from "../../../assets/img/gallery/nisemono1.jpg";
 
 export const CONTROLS_MAX_DISTANCE = 200;
 export const CONTROLS_MIN_DISTANCE = 100;
+export const COLOR = {
+    color_background_primary: 0x1d121f,
+    color_white: 0xffffff
+}
 
 export const LightsSettings: Array<LightSetting> = [
     {
