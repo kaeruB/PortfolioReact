@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/three": "^0.103.2",
     "lodash": "^4.17.20",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
@@ -14,9 +13,7 @@
     "typescript": "~3.7.2"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@types/three": "^0.103.2",
     "@types/jest": "^24.0.0",
     "@types/lodash": "^4.14.166",
     "@types/node": "^12.0.0",
@@ -27,7 +24,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
