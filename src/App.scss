@@ -1,5 +1,22 @@
+@import 'styles/base';
+@import 'styles/mixins';
+@import 'src/styles/utils';
 @import 'styles/variables';
 
-@import 'styles/base';
-@import 'styles/home';
-@import 'styles/works';
+@import 'src/styles/elements/button';
+@import 'src/styles/elements/header';
+@import 'src/styles/elements/loader';
+@import 'src/styles/elements/logo';
+
+@import 'styles/pages/carrier';
+@import 'styles/pages/gallery';
+@import 'src/styles/pages/home';
+
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@600&display=swap");
+
+
+.App {
+  background: $color-background-primary;
+}

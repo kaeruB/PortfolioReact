@@ -1,0 +1,75 @@
+@import "./../_variables.scss";
+.home {
+  margin: auto;
+  background: #1a1519;
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+
+  height: 100vh;
+
+  &__welcome {
+    position: fixed;
+    bottom: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+
+    width: 100%;
+    max-width: 136.6rem;
+    padding: 0 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
+
+    color: $color-font-primary;
+
+    &--upper {
+      font-size: $font-size-primary;
+      margin-bottom: 1rem;
+
+      @include respond(phone) {
+        font-size: $font-size-mobile-primary;
+      }
+    }
+
+    &--bottom {
+      font-size: $font-size-title;
+      font-family: 'Be Vietnam', sans-serif;
+
+      @include respond(phone) {
+        font-size: $font-size-mobile-title;
+      }
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      height: 100vh;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    margin-top: 14px;
+
+    &--link {
+      margin-right: 10px;
+
+      img {
+        width: 40px;
+      }
+    }
+  }
+}
