@@ -1,6 +1,6 @@
 @import "./../_variables.scss";
 .header-container {
-  position: fixed;
+  position: absolute;
   z-index: 999;
   top: 0;
   padding-top: 1rem;
@@ -40,6 +40,10 @@
 
     &:first-child {
       margin-right: 30px;
+
+      @include respond(phone) {
+        margin-right: 15px;
+      }
     }
   }
 }
