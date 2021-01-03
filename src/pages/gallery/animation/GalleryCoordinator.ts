@@ -214,14 +214,16 @@ export default class GalleryCoordinator {
         mouse: THREE.Vector2
     ): void {
         event.preventDefault();
-        let pointerPosition: XYPosition;
-
-        if (event instanceof TouchEvent) {
+        let pointerPosition: XYPosition = {
+            x: 99999,
+            y: 99999
+        }
+        if (window.TouchEvent && event instanceof TouchEvent) {
             pointerPosition = {
                 x: event.touches[0].clientX,
                 y: event.touches[0].clientY
             }
-        } else { // if (event instanceof MouseEvent)
+        } else if (event instanceof MouseEvent) {
             pointerPosition = {
                 x: event.clientX,
                 y: event.clientY

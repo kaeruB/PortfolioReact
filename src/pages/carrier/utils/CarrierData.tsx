@@ -79,7 +79,7 @@ export const CARRIER_DATA: Array<CarrierData> = [
                 highlighted: true
             },
             {
-                text: 'Developed a visualization tool of messages propagation between Akamai\'s machines. ',
+                text: 'Worked with the Mapping Team and developed a highly useful visualization tool.',
                 highlighted: false
             }
         ],
