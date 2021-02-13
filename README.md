@@ -1,7 +1,7 @@
 # Portfolio
 
 The following project is my website.<br />
-You can find it here: **[agatki.jp](https://agatki.jp)**.<br />
+You can find it here: **[agatki.jp](https://agatki.jp)** (temporarily http://ec2-18-182-89-170.ap-northeast-1.compute.amazonaws.com).<br />
 I hope you'll enjoy especially the gallery 😎
 
 ## Technologies
