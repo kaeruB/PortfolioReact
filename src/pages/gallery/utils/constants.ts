@@ -184,7 +184,7 @@ export const Drawings: Array<PhotoMetadata> = [
     {
         path: nisemono1,
         title: 'Cat',
-        description: "I love cat's but when I touch them my hand gets swollen and I sneeze... (allergy). Illustrator.",
+        description: "I love cats but when I touch them my hand gets swollen and I sneeze... (allergy). Illustrator.",
         position: {
             x: -0.7,
             y: -0.2,

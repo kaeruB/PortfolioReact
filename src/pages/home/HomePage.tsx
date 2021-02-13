@@ -14,10 +14,10 @@ export class HomePage extends Component {
                 <div className="home__welcome">
                     <span className="home__welcome--upper">Hi everyone</span>
                     <span className="home__welcome--bottom">
-                        I'm a polish front-end developer,
+                        I'm a Polish front-end developer,
                     </span>
                     <span className="home__welcome--bottom">
-                        working at a japanese company.
+                        working at a Japanese company.
                     </span>
 
                     <div className="home__buttons">
