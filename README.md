@@ -1,8 +1,9 @@
 # Portfolio
 
 The following project is my website.<br />
-You can find it here: **[agatki.jp](https://agatki.jp)** (temporarily http://ec2-18-182-89-170.ap-northeast-1.compute.amazonaws.com).<br />
-I hope you'll enjoy especially the gallery 😎
+You can find it at **[GitHub Pages](https://kaerub.github.io/PortfolioReact/#/)** .<br />
+Some data can be outdated, but I hope you'll enjoy especially the gallery 😎<br />
+To see an updated carrier path just visit my **[LinkedIn (English)](https://www.linkedin.com/in/agata-izabela-bogacz/)** or **[Wantedly (日本語)](https://www.wantedly.com/id/agatki)**. <br />
 
 ## Technologies
 
@@ -14,9 +15,8 @@ I hope you'll enjoy especially the gallery 😎
 
 ## Scripts
 
-* install packages `yarn`
-* run the project locally `yarn start` -> [http://localhost:3000](http://localhost:3000)
-* build for production 
+* install packages `yarn` or `npm install`
+* run the project locally `yarn start` or `npm run start` -> [http://localhost:3000](http://localhost:3000)
 
 ## Author
 **Agata Bogacz**  <br />
