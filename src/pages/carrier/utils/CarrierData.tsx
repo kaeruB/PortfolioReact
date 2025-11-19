@@ -3,7 +3,7 @@ import {CarrierData, PLACES} from "./models";
 export const CARRIER_DATA: Array<CarrierData> = [
     {
         place: PLACES.NANGOK,
-        link: 'https://7659sw.com/',
+        link: '',
         time: '2/2020 - present',
         technologyIcons: ['vue', 'angular', 'electron'],
         category: 'work',
@@ -18,7 +18,7 @@ export const CARRIER_DATA: Array<CarrierData> = [
                 highlighted: false
             },
             {
-                text: 'First job in a Japanese company. ',
+                text: '',
                 highlighted: true
             }
         ],
