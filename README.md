@@ -1,7 +1,6 @@
 # Portfolio
 
 The following project is my website.<br />
-You can find it at **[GitHub Pages](https://kaerub.github.io/PortfolioReact/#/)** .<br />
 Some data can be outdated, but I hope you'll enjoy especially the gallery 😎<br />
 To see an updated carrier path just visit my **[LinkedIn (English)](https://www.linkedin.com/in/agata-izabela-bogacz/)** or **[Wantedly (日本語)](https://www.wantedly.com/id/agatki)**. <br />
 
